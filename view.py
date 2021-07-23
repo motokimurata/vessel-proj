@@ -49,7 +49,6 @@ app.layout = html.Div(
 )
 
 
-
 @app.callback(
     Output('output-container', 'children'),
     [Input('carrier-dropdown', 'value')])
