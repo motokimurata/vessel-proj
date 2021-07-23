@@ -2,7 +2,6 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
-from assets.models import Data
 
 import datetime
 import os
@@ -21,7 +20,7 @@ Base = declarative_base()
 Base.query = db_session.query_property()
 
 def init_db():    
-    Base.metadata.create_all(bind=engine, tables=[Data.__table__])
+    Base.metadata.create_all(bind=engine)
 
 def read_data():
     from assets import models   
