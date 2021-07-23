@@ -25,7 +25,7 @@ def init_db():
 def read_data():
     from assets import models   
 
-    df = pd.read_csv('assets\\vessel_schedule.csv')
+    df = pd.read_csv('assets/vessel_schedule.csv')
     for index,_df in df.iterrows():
         row = models.Data(Vessel= _df['vessel'], Carrier=_df['carrier'], Voyage = _df['voyage No.'],  Service = _df['service'], Pod = _df['POD'], ETA = _df['ETA'], Berthing = _df['Berthing'],)
         db_session.add(row)
