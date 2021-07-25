@@ -2,6 +2,8 @@ from selenium import webdriver
 import pandas as pd
 from selenium.common.exceptions import NoSuchElementException
 import datetime
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.by import By
 
 header=['vessel','carrier','voyage No.','service','POD', 'ETA','Berthing','Updatetime']
 df_original = pd.DataFrame(columns=header)
