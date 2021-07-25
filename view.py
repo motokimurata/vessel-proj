@@ -4,15 +4,16 @@ import dash_core_components as dcc
 import dash_html_components as html
 from dash.dependencies import Input, Output
 import pandas as pd
-from work.app.assets.database import db_session
-from work.app.assets.models import Data
+from assets.database import db_session
+from assets.models import Data
 
 
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
-df = pd.read_csv("work/app/assets/vessel_schedule.csv")
-header=['vessel','carrier','voyage No.','service','POD', 'ETA','Berthing','Updatedate']
+data = db_session.query(Data.Vessel,Data.Carrier,Data.Voyage,Data.Service,Data.Pod,Data.ETA,Data.Berthing,Data.timestamp).all()
+header=['vessel','carrier','voyage No.','service','POD', 'ETA','Berthing','updatetime']
+df = pd.DataFrame(data=data,columns=header)
 
 
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
@@ -48,7 +49,6 @@ app.layout = html.Div(
 )
 
 
-
 @app.callback(
     Output('output-container', 'children'),
     [Input('carrier-dropdown', 'value')])
@@ -65,6 +65,7 @@ def input_triggers_spinner(value):
         export_format='csv',
     )
     return output_table
+
 
 
 if __name__ == '__main__':
