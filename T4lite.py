@@ -56,13 +56,13 @@ for k in range(len(port)):
             if len(berthing)==0:
                 berthing=["NA"]
 
-            row =Data(Vessel=vessel[0],Carrier=carrier,Voyage=voyage[0],service=service[0],Pod=pod,ETA=arrival[0],Berthing=berthing[0])
+            row =Data(Vessel=vessel[0],Carrier=carrier,Voyage=voyage[0],Service=service[0],Pod=pod,ETA=arrival[0],Berthing=berthing[0])
 
             db_session.add(row)
             db_session.commit()
 
             browser.back()
-            
+
 browser.quit()
 
 
