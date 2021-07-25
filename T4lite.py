@@ -2,6 +2,8 @@ from selenium import webdriver
 import pandas as pd
 from selenium.common.exceptions import NoSuchElementException
 import datetime
+from assets.database import db_session
+from assets.models import Data
 
 header=['vessel','carrier','voyage No.','service','POD', 'ETA','Berthing','Updatetime']
 df_original = pd.DataFrame(columns=header)
@@ -54,12 +56,13 @@ for k in range(len(port)):
             if len(berthing)==0:
                 berthing=["NA"]
 
-            updatedate= datetime.datetime.now().strftime("%Y/%m/%d %H:%M")
-            
-            df_newrow =pd.DataFrame(data= [[vessel[0],carrier,voyage[0],service[0],pod,arrival[0],berthing[0],updatedate]],columns=header)
+            row =Data(Vessel=vessel[0],Carrier=carrier,Voyage=voyage[0],service=service[0],Pod=pod,ETA=arrival[0],Berthing=berthing[0])
 
-            df_original = pd.concat([df_original,df_newrow],axis=0)
+            db_session.add(row)
+            db_session.commit()
+
             browser.back()
-
-df_original.to_csv("vessel_schedule.csv",index= False)
+            
 browser.quit()
+
+
