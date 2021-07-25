@@ -5,7 +5,10 @@ import datetime
 
 header=['vessel','carrier','voyage No.','service','POD', 'ETA','Berthing','Updatetime']
 df_original = pd.DataFrame(columns=header)
-browser  = webdriver.Edge('msedgedriver.exe')
+
+options = webdriver.ChromeOptions()
+options.add_argument('--headless')
+browser = webdriver.Chrome(options=options)
 
 portname = {3:"SED",13:"TYO",11:"YOK",30:"SHI",35:"NGO",40:"OSA",41:"OBE",70:"MOJ"}
 
@@ -396,6 +399,5 @@ for k in range(len(port)):
             df_original = pd.concat([df_original,df_newrow],axis=0)
             browser.back()
 
-df_original
 df_original.to_csv("vessel_schedule.csv",index= False)
 browser.quit()
