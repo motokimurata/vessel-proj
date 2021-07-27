@@ -6,13 +6,16 @@ from dash.dependencies import Input, Output
 import pandas as pd
 from assets.database import db_session
 from assets.models import Data
+from datetime import datetime as dt
+from datetime import timedelta as td
+
 
 
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
-data = db_session.query(Data.Vessel,Data.Carrier,Data.Voyage,Data.Service,Data.Pod,Data.ETA,Data.Berthing,Data.timestamp).all()
-header=['vessel','carrier','voyage No.','service','POD', 'ETA','Berthing','updatetime']
+data = db_session.query(Data.Vessel,Data.Carrier,Data.Voyage,Data.Service,Data.Pod,Data.ETA,Data.Berthing,(Data.timestamp+td(hours=9)).strftime("%Y/%m/%d %H:%M")).all()
+header=['Vessel','Carrier','Voyage No.','Service','POD', 'ETA','Berthing','UpdateTime']
 df = pd.DataFrame(data=data,columns=header)
 
 

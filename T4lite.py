@@ -16,8 +16,10 @@ browser = webdriver.Chrome(options=options,executable_path=driver_path)
 
 portname = {3:"SED",13:"TYO",11:"YOK",30:"SHI",35:"NGO",40:"OSA",41:"OBE",70:"MOJ"}
 
-port = [13,11,40,41] #東京,横浜,大阪,神戸 OOCL
-week = [3,4]
+#port = [13,11,40,41] #東京,横浜,大阪,神戸 OOCL
+#week = [3,4]
+port = [11] #東京,横浜,大阪,神戸 OOCL
+week = [3]
 carrier = 'OOC'
 target = ['KTX1','KTX2','KTX3']
 
@@ -74,8 +76,10 @@ for k in range(len(port)):
             browser.back()
 
 
-port = [13,11,40,41] #東京,横浜,大阪,神戸 EVG
-week = [3,4,5]
+#port = [13,11,40,41] #東京,横浜,大阪,神戸 EVG
+#week = [3,4,5]
+port = [11] #東京,横浜,大阪,神戸 EVG
+week = [3]
 carrier = 'EVG'
 target = ['NSA','NSD','NSC']
 
