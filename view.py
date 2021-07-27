@@ -59,7 +59,7 @@ app.layout = html.Div(
 def input_triggers_spinner(value):
     df_out=pd.DataFrame(columns=header)
     for cnt in range (len(value)):
-        df_filtered = df[df["carrier"] == value[cnt]]
+        df_filtered = df[df["Carrier"] == value[cnt]]
         df_out = pd.concat([df_out,df_filtered])
     output_table = dash_table.DataTable(
         id='table',
