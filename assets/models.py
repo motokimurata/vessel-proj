@@ -2,6 +2,8 @@
 from sqlalchemy import Column, Integer, String, Boolean, DateTime, Date
 from assets.database import Base
 from datetime import datetime as dt
+from datetime import timedelta as td
+from datetime import timezone as tz
 
 #Table情報
 class Data(Base):
@@ -16,7 +18,7 @@ class Data(Base):
     Pod = Column(String, unique=False)
     ETA = Column(String, unique=False)
     Berthing = Column(String, unique=False)
-    timestamp = Column(DateTime, default=dt.now())
+    timestamp = Column(DateTime(timezone=True), default=dt.now(tz(td(hours=9))))
 
     def __init__(self, Vessel=None, Carrier=None, Voyage=None,Service=None, Pod=None, ETA=None, Berthing=None ,timestamp=None):
         self.Vessel = Vessel
