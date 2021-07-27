@@ -14,7 +14,7 @@ from datetime import timedelta as td
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
-data = db_session.query(Data.Vessel,Data.Carrier,Data.Voyage,Data.Service,Data.Pod,Data.ETA,Data.Berthing,(Data.timestamp+td(hours=9)).strftime("%Y/%m/%d %H:%M")).all()
+data = db_session.query(Data.Vessel,Data.Carrier,Data.Voyage,Data.Service,Data.Pod,Data.ETA,Data.Berthing,(Data.timestamp+td(hours=9))).all()
 header=['Vessel','Carrier','Voyage No.','Service','POD', 'ETA','Berthing','UpdateTime']
 df = pd.DataFrame(data=data,columns=header)
 
