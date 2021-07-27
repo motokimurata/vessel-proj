@@ -17,7 +17,7 @@ external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 data = db_session.query(Data.Vessel,Data.Carrier,Data.Voyage,Data.Service,Data.Pod,Data.ETA,Data.Berthing,Data.timestamp).all()
 header=['Vessel','Carrier','Voyage No.','Service','POD', 'ETA','Berthing','UpdateTime']
 df = pd.DataFrame(data=data,columns=header)
-df['UpdateTime'] += td(hours=9)
+#df['UpdateTime'] += td(hours=9)
 
 
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
