@@ -132,5 +132,6 @@ for k in range(len(port)):
            
 
 browser.quit()
+db_session.close()
 
 
