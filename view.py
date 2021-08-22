@@ -7,7 +7,7 @@ import pandas as pd
 from assets.database import db_session
 from assets.models import Data
 from datetime import datetime as dt
-from datetime import timedelta as td
+from datetime import timedelta as td    
 
 
 
@@ -45,7 +45,7 @@ app.layout = html.Div(
                 {'label': 'MSK',
                  'value': 'MSK'}
             ], 
-            value= ['OOC', 'EVG'],
+            value= ['OOC', 'EVG','SAS'],
             multi=True
         ),
         html.Div(id='output-container', style={"margin": "5%"})
