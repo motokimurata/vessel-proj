@@ -5,6 +5,7 @@ import datetime
 from assets.database import db_session
 from assets.models import Data
 from time import sleep
+from sqlalchemy import exc
 
 header=['vessel','carrier','voyage No.','service','POD', 'ETA','Berthing','Updatetime']
 df_original = pd.DataFrame(columns=header)
@@ -67,8 +68,11 @@ for k in range(len(port)):
 
                 row =Data(Vessel=vessel[0],Carrier=carrier,Voyage=voyage[0],Service=service[0],Pod=pod,ETA=arrival[0],Berthing=berthing[0])
 
-                db_session.add(row)
-                db_session.commit()
+                try:
+                    db_session.add(row)
+                    db_session.commit()
+                except exc.IntegrityError:
+                    db_session.rollback()
             
             sleep(1)
             browser.back()
@@ -124,8 +128,11 @@ for k in range(len(port)):
             if service[0] in target:
                 row =Data(Vessel=vessel[0],Carrier=carrier,Voyage=voyage[0],Service=service[0],Pod=pod,ETA=arrival[0],Berthing=berthing[0])
 
-                db_session.add(row)
-                db_session.commit()
+                try:
+                    db_session.add(row)
+                    db_session.commit()
+                except exc.IntegrityError:
+                    db_session.rollback()
             
             sleep(1)
             browser.back()
@@ -177,8 +184,11 @@ for k in range(len(port)):
             
             row =Data(Vessel=vessel[0],Carrier=carrier,Voyage=voyage[0],Service=service[0],Pod=pod,ETA=arrival[0],Berthing=berthing[0])
 
-            db_session.add(row)
-            db_session.commit()
+            try:
+                db_session.add(row)
+                db_session.commit()
+            except exc.IntegrityError:
+                db_session.rollback()
             
             sleep(1)
             browser.back()     
