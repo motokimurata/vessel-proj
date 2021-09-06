@@ -172,7 +172,7 @@ for k in range(len(port)):
             if len(service)==0:
                 service=["NA"]
 
-            arrival = [elem_content.text.replace("入港時間 Arrival","").replace("\n輸入 ","") for elem_content in elems_content if "Arrival" in elem_content.text]
+            arrival = [elem_content.text.replace("入港時間 Arrival ","").replace("\n輸入","") for elem_content in elems_content if "Arrival" in elem_content.text]
             if len(arrival)==0:
                 arrival=["NA"] 
 

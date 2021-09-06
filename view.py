@@ -45,7 +45,7 @@ app.layout = html.Div(
                 {'label': 'TSL',
                  'value': 'TSL'}
             ], 
-            value= ['OOC', 'EVG','SAS','TSL'],
+            value= ['OOC', 'EVG','SAS','TSL','WHL','ONE'],
             multi=True
         ),
         html.Div(id='output-container', style={"margin": "5%"})
