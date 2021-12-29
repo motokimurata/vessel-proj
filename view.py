@@ -1,5 +1,6 @@
 import dash
 import dash_table
+import dash_auth
 import dash_core_components as dcc
 import dash_html_components as html
 from dash.dependencies import Input, Output
@@ -9,10 +10,12 @@ from assets.models import Data
 from datetime import datetime as dt
 from datetime import timedelta as td    
 
-
-
+VALID_USERNAME_PASSWORD_PAIRS = {
+    'Motoki Murata': '2021'
+}
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
+
 
 data = db_session.query(Data.Vessel,Data.Carrier,Data.Voyage,Data.Service,Data.Pod,Data.ETA,Data.Berthing,Data.timestamp+td(hours=9)).all()
 header=['Vessel','Carrier','Voyage No.','Service','POD', 'ETA','Berthing','UpdateTime']
@@ -21,6 +24,11 @@ db_session.close()
 
 
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+
+auth = dash_auth.BasicAuth(
+    app,
+    VALID_USERNAME_PASSWORD_PAIRS
+)
 
 server = app.server
 
