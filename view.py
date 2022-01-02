@@ -17,7 +17,6 @@ data = db_session.query(Data.Vessel,Data.Carrier,Data.Voyage,Data.Service,Data.P
 header=['Vessel','Carrier','Voyage No.','Service','POD', 'ETA','Berthing','UpdateTime']
 df = pd.DataFrame(data=data,columns=header)
 db_session.close()
-
 for i in range(len(df['Berthing'])): #Berthing列を文字列から日付型へ変更
     try:
         df['Berthing'][i] = parse(df['Berthing'][i])
