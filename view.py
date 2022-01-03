@@ -19,27 +19,27 @@ df = pd.DataFrame(data=data,columns=header)
 db_session.close()
 for i in range(len(df['Berthing'])): #Berthing列を文字列から日付型へ変更
     try:
-        df['Berthing'][i] = parse(df['Berthing'][i])
+        df.loc[i,'Berthing'] = parse(df['Berthing'][i])
     except:
-        df['Berthing'][i] = np.nan
+        df.loc[i,'Berthing'] = np.nan
 
 for i in range(len(df['UpdateTime'])): #UpdateTime列を文字列から日付型へ変更
     try:
-        df['UpdateTime'][i] = parse(df['UpdateTime'][i].replace('T',' '))
+        df.loc[i,'UpdateTime'] = parse(df['UpdateTime'][i].replace('T',' '))
     except:
-        df['UpdateTime'][i] = np.nan
+        df.loc[i,'UpdateTime'] = np.nan
 
-df = df.dropna(axis=0,subset=['UpdateTime']) #UpdatetimeがNaNの行を削除
-df = df.sort_values(['Carrier','Service','POD','Voyage No.','Vessel','UpdateTime'],ascending=[True,True,True,True,True,True]).reset_index(drop=True)
-df1 = df.drop(columns = ['ETA','UpdateTime'],inplace=False) #日付列を削除して新たなdfを生成
+df.dropna(axis=0,subset=['UpdateTime']).copy() #UpdatetimeがNaNの行を削除
+df.sort_values(['Carrier','Service','POD','Voyage No.','Vessel','UpdateTime'],ascending=[True,True,True,True,True,True]).reset_index(drop=True).copy()
+df1 = df.drop(columns = ['ETA','UpdateTime'],inplace=False).copy() #日付列を削除して新たなdfを生成
 df1.drop_duplicates(subset=['Vessel','Carrier','Voyage No.','Service','POD'],inplace=True,ignore_index=True,keep='first') #上で日付古い順にソートしているので重複を削除すると一番古いBerthingを保持
 df1.rename(columns={'Berthing':'Berthing_first'},inplace=True) #'Berthing'の列名を'Berthing_first'へ変更
-df2 = df.drop(columns = ['ETA'],inplace=False) #日付列を削除して新たなdfを生成
+df2 = df.drop(columns = ['ETA'],inplace=False).copy() #日付列を削除して新たなdfを生成
 df2.drop_duplicates(subset=['Vessel','Carrier','Voyage No.','Service','POD'],inplace=True,ignore_index=True,keep='last') #上で日付古い順にソートしているので重複を削除すると一番新しいBerthingとUpdatetimeを保持
 df2.rename(columns={'Berthing':'Berthing_last'},inplace=True) #'Berthing'の列名を'Berthing_last'へ変更
-df1= pd.merge(df1,df2,on=['Vessel','Carrier','Voyage No.','Service','POD'],how='left')
-df1 = df1.dropna(axis=0,subset=['Berthing_first', 'Berthing_last']) #Berthing_firstもしくはBerthing_lastがNaNの行を削除
-df1 = df1.reset_index(drop=True)
+df1= pd.merge(df1,df2,on=['Vessel','Carrier','Voyage No.','Service','POD'],how='left').copy()
+df1.dropna(axis=0,subset=['Berthing_first', 'Berthing_last']) #Berthing_firstもしくはBerthing_lastがNaNの行を削除
+df1.reset_index(drop=True)
 
 delta_days=[] #最初のBerthingと最近のBerthingの差を算出
 for i in range(len(df1['Berthing_last'])+1):
