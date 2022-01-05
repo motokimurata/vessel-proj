@@ -15,6 +15,7 @@ import plotly.graph_objects as go
 
 data = db_session.query(Data.Vessel,Data.Carrier,Data.Voyage,Data.Service,Data.Pod,Data.ETA,Data.Berthing,Data.timestamp+td(hours=9)).all()
 header=['Vessel','Carrier','Voyage No.','Service','POD', 'ETA','Berthing','UpdateTime']
+df_origin = pd.DataFrame(data=data,columns=header)
 df = pd.DataFrame(data=data,columns=header)
 db_session.close()
 for i in range(len(df['Berthing'])): #Berthing列を文字列から日付型へ変更
@@ -812,7 +813,7 @@ def render_content(tab):
 def input_triggers_spinner(value):
     df_out=pd.DataFrame(columns=header)
     for cnt in range (len(value)):
-        df_filtered = df[df["Carrier"] == value[cnt]]
+        df_filtered = df_origin[df["Carrier"] == value[cnt]]
         df_out = pd.concat([df_out,df_filtered])
     output_table = dash_table.DataTable(
         id='table',
