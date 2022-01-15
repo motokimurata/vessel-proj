@@ -13,6 +13,7 @@ from datetime import timedelta as td
 from dateutil.parser import parse
 import plotly.graph_objects as go
 
+#以下コード
 data = db_session.query(Data.Vessel,Data.Carrier,Data.Voyage,Data.Service,Data.Pod,Data.ETA,Data.Berthing,Data.timestamp+td(hours=9)).all()
 header=['Vessel','Carrier','Voyage No.','Service','POD', 'ETA','Berthing','UpdateTime']
 df_origin = pd.DataFrame(data=data,columns=header)
