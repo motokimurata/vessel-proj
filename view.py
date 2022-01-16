@@ -905,22 +905,22 @@ def render_content(tab):
                 'padding': '0.2em 0.5em 0.2em 0.5em'}),
         html.Div([
         dcc.Graph(
-            id='tsl_jtx_obe',
+            id='tsl_jtk_obe',
             figure= fig_tsl_jtk_obe
         ),
 
         dcc.Graph(
-            id='tsl_jtx_tyo',
+            id='tsl_jtk_tyo',
             figure= fig_tsl_jtk_tyo
         ),
 
         dcc.Graph(
-            id='tsl_jtx_osa',
+            id='tsl_jtk_osa',
             figure=fig_tsl_jtk_osa
         ),
 
         dcc.Graph(
-            id='tsl_jtx_yko',
+            id='tsl_jtk_yko',
             figure=fig_tsl_jtk_yko
         )
         ],
