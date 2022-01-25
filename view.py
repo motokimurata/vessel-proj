@@ -667,54 +667,56 @@ tabs_styles = {
     'height': '44px'
 }
 tab_style1 = {
-    'borderTop': '2px solid #FFFFFF',
-    'borderBottom': '2px solid #FFFFFF',
-    'borderLeft': '2px solid #FFFFFF',
-    'borderRight': '2px solid #FFFFFF',
+    'borderTop': '2px solid #FFFEF6',
+    'borderBottom': '2px solid #FFFEF6',
+    'borderLeft': '2px solid #FFFEF6',
+    'borderRight': '2px solid #FFFEF6',
     'color': '#696969',
-    'backgroundColor': '#FFFFFF',
-    'padding': '6px',
-    'fontSize': 28
+    'background-color': '#FFFEF6',
+    'padding': '0px',
+    'fontSize': 16
 }
 
 tab_selected_style1 = {
-    'borderTop': '2px solid #FFFFFF',
+    'borderTop': '2px solid #FFFEF6',
     'borderBottom': '4px solid #7b68ee',
-    'borderLeft': '2px solid #FFFFFF',
-    'borderRight': '2px solid #FFFFFF',
+    'borderLeft': '0.05px solid #FFFEF6',
+    'borderRight': '0.05px solid #FFFEF6',
     'fontWeight': 'bold',
     'color': '#7b68ee',
-    'padding': '6px',
-    'fontSize': 28
+    'background-color': '#FFFEF6',
+    'padding': '0px',
+    'fontSize': 16
 }
-
-
 
 tab_style = {
     'borderBottom': '1px solid #d6d6d6',
-    'backgroundColor': '#F5F5F5',
+    'backgroundColor': '#FFFFFF',
     'color': '#696969',
     'padding': '6px',
-    'fontSize': 20
+    'fontSize': 18
 }
 
 tab_selected_style = {
     'borderTop': '2px solid #696969',
     'fontWeight': 'bold',
     'color': '#696969',
+    'background-color': '#FFFFFF',
     'padding': '6px',
-    'fontSize': 20
+    'fontSize': 18
 }
 
 app.layout =  html.Div([
         html.H1(children='    Vessel Delay Report',
         style={
             'color': '#696969', 
-            'fontSize': 40,
+            'borderTop': '1px solid #d6d6d6',
+            'fontSize': 22,
             'textAlign': 'left',
-            'background-color': '#f5f5f5',
+            'background-color': '#FFFEF6',
             'fontWeight': 'bold',
-            'padding': '0.2em 0.5em 0.2em 0.5em'}
+            'margin': '0 0 -1em 0',
+            'padding': '0.2em 0.5em 1em 0.5em'}
             ),
         html.Div([
         dcc.Tabs(id='tabs-example1', value='tab-a', 
@@ -734,8 +736,10 @@ app.layout =  html.Div([
             ],
             style={
             'display': 'block',
-            'margin': '-1em 0 0 0',
-            'padding':'0 75em 4em 0',   
+            'margin': '1em 0 0 0',
+            'padding':'0 75em 0.05em 0',   
+            'background-color': '#FFFEF6',
+            'borderBottom': '1px solid #d6d6d6',
             })
         ]),
         html.Div(id='tabs-example-content-a')
@@ -770,7 +774,8 @@ def render_content(tab):
         ),
         ],
         style={
-            'margin': '2em 0 0 0',         
+            'padding':'4em 0 0 0',
+            'background-color' :'#FFFFFF'        
             }
         ),
         html.Div(id='tabs-example-content-1')
