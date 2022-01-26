@@ -138,7 +138,6 @@ tsl_y4 = target3['mean'][target3['POD'] == 'YKO']
 min_err_tsl_y4= target3['mean'][target3['POD'] == 'YKO']-target3['min'][target3['POD'] == 'YKO']
 max_err_tsl_y4= target3['max'][target3['POD'] == 'YKO']-target3['mean'][target3['POD'] == 'YKO']
 
-### グラフの色 ###
 
 #船会社別のマーカーと線の色
 evgcolor = '#00AE95'
