@@ -14,11 +14,12 @@ from dateutil.parser import parse
 import plotly.graph_objects as go
 
 #以下コードを記す。
-data = db_session.query(Data.Vessel,Data.Carrier,Data.Voyage,Data.Service,Data.Pod,Data.ETA,Data.Berthing,Data.timestamp+td(hours=9)).all()
+#data = db_session.query(Data.Vessel,Data.Carrier,Data.Voyage,Data.Service,Data.Pod,Data.ETA,Data.Berthing,Data.timestamp+td(hours=9)).all()
+data = pd.read_csv('assets/vessel_schedule.csv')
 header=['Vessel','Carrier','Voyage No.','Service','POD', 'ETA','Berthing','UpdateTime']
 df_origin = pd.DataFrame(data=data,columns=header)
 df = pd.DataFrame(data=data,columns=header)
-db_session.close()
+#db_session.close()
 for i in range(len(df['Berthing'])): #Berthing列を文字列から日付型へ変更
     try:
         df.loc[i,'Berthing'] = parse(df['Berthing'][i])
@@ -829,14 +830,15 @@ def input_triggers_spinner(value):
     )
     return output_table
 
+### ここからテスト
+div_style = {
+    "width" : "50%",
+    "display":"inline-block"
+}
 
-@app.callback(
-    Output('tabs-example-content-1', 'children'),
-    [Input('tabs-example', 'value')])
-def render_content(tab):
-    if tab == 'tab-1':
-        return html.Div([
-                html.H3(children='Service: NSA',
+evg_top_center = html.Div(
+    [
+        html.H3(children='Service: NSA',
                 style={
                 'color': mkrcolor, 
                 'display': 'inline-block',
@@ -845,24 +847,14 @@ def render_content(tab):
                 'background-color': evgcolor,
                 'fontWeight': 'bold',
                 'margin' : '1em 0 0 1em',
-                'padding': '0.2em 0.5em 0.2em 0.5em'}),
-                html.Div([
-                dcc.Graph(
-                    id='evg_nsa_obe',
-                    figure=fig_evg_nsa_obe
-                ),
+                'padding': '0.2em 0.5em 0.2em 0.5em'})
+        
+    ]
+)
 
-                dcc.Graph(
-                    id='evg-nsa-osa',
-                    figure=fig_evg_nsa_osa     
-                )
-            ],
-            style={'columnCount':2})
-        ])
-
-    elif tab == 'tab-2':
-        return html.Div([
-            html.H3(children='Service: KTX1',
+ooc_top_center = html.Div(
+    [
+        html.H3(children='Service: KTX1',
             style={
                 'color': mkrcolor, 
                 'display': 'inline-block',
@@ -871,33 +863,13 @@ def render_content(tab):
                 'background-color': ooclcolor,
                 'fontWeight': 'bold',
                 'margin' : '1em 0 0 1em',
-                'padding': '0.2em 0.5em 0.2em 0.5em'}),
-        html.Div([
-        dcc.Graph(
-            id='ooc_ktx1_obe',
-            figure=fig_ooc_ktx1_obe
-        ),
+                'padding': '0.2em 0.5em 0.2em 0.5em'}) 
+    ]
+)
 
-        dcc.Graph(
-            id='ooc_ktx1_tyo',
-            figure=fig_ooc_ktx1_tyo
-        ),
-
-        dcc.Graph(
-            id='ooc_ktx1_osa',
-            figure=fig_ooc_ktx1_osa
-        ),
-
-        dcc.Graph(
-            id='ooc_ktx1_yko',
-            figure=fig_ooc_ktx1_yko
-        )
-        ],
-        style={'columnCount':2})
-        ])
-    elif tab == 'tab-3':
-        return html.Div([
-            html.H3(children='Service: JTK',
+tsl_top_center = html.Div(
+    [
+        html.H3(children='Service: JTK',
             style={
                 'color': mkrcolor, 
                 'display': 'inline-block',
@@ -906,30 +878,200 @@ def render_content(tab):
                 'background-color': tslcolor,
                 'fontWeight': 'bold',
                 'margin' : '1em 0 0 1em',
-                'padding': '0.2em 0.5em 0.2em 0.5em'}),
-        html.Div([
+                'padding': '0.2em 0.5em 0.2em 0.5em'})
+    ]
+)
+
+evg_top_left = html.Div(
+    [
+        dcc.Graph(
+                    id='evg_nsa_obe',
+                    figure=fig_evg_nsa_obe
+                )
+    ],
+    style=div_style,
+)
+
+evg_top_right = html.Div(
+    [
+        dcc.Graph(
+                    id='evg-nsa-osa',
+                    figure=fig_evg_nsa_osa 
+                )
+    ],
+    style=div_style,
+)
+
+ooc_top_left = html.Div(
+    [
+        dcc.Graph(
+            id='ooc_ktx1_obe',
+            figure=fig_ooc_ktx1_obe
+        )
+    ],
+    style=div_style,
+)
+
+ooc_top_right = html.Div(
+    [
+        dcc.Graph(
+            id='ooc_ktx1_osa',
+            figure=fig_ooc_ktx1_osa
+        )
+    ],
+    style=div_style,
+)
+
+ooc_bottom_left = html.Div(
+    [
+        dcc.Graph(
+            id='ooc_ktx1_tyo',
+            figure=fig_ooc_ktx1_tyo
+        )
+    ],
+    style=div_style,
+)
+
+ooc_bottom_right = html.Div(
+    [
+        dcc.Graph(
+            id='ooc_ktx1_yko',
+            figure=fig_ooc_ktx1_yko
+        )
+    ],
+    style=div_style,
+)
+tsl_top_left = html.Div(
+    [
         dcc.Graph(
             id='tsl_jtk_obe',
             figure= fig_tsl_jtk_obe
-        ),
+        )
+    ],
+    style=div_style,
+)
 
-        dcc.Graph(
-            id='tsl_jtk_tyo',
-            figure= fig_tsl_jtk_tyo
-        ),
-
+tsl_top_right = html.Div(
+    [
         dcc.Graph(
             id='tsl_jtk_osa',
             figure=fig_tsl_jtk_osa
-        ),
+        )
+    ],
+    style=div_style,
+)
 
+tsl_bottom_left = html.Div(
+    [
+        dcc.Graph(
+            id='tsl_jtk_tyo',
+            figure= fig_tsl_jtk_tyo
+        )
+    ],
+    style=div_style,
+)
+
+tsl_bottom_right = html.Div(
+    [
         dcc.Graph(
             id='tsl_jtk_yko',
             figure=fig_tsl_jtk_yko
         )
-        ],
-        style={'columnCount':2})
-        ])
+    ],
+    style=div_style,
+)
+
+
+@app.callback(
+    Output('tabs-example-content-1', 'children'),
+    [Input('tabs-example', 'value')])
+
+def render_content(tab):
+    #if tab == 'tab-1':
+        #return html.Div([
+                #html.H3(children='Service: NSA',
+                #style={
+                #'color': mkrcolor, 
+                #'display': 'inline-block',
+                #'fontSize': 24,
+                #'textAlign': 'center',
+                #'background-color': evgcolor,
+                #'fontWeight': 'bold',
+                #'margin' : '1em 0 0 1em',
+                #'padding': '0.2em 0.5em 0.2em 0.5em'}),
+                #html.Div([
+                #dcc.Graph(
+                    #id='evg_nsa_obe',
+                    #figure=fig_evg_nsa_obe
+                #),
+
+                #dcc.Graph(
+                    #id='evg-nsa-osa',
+                    #figure=fig_evg_nsa_osa     
+                #)
+            #],
+            #style={'columnCount':2})
+        #])
+        
+    if tab == 'tab-1':
+        return html.Div(
+            children=[
+                html.Div(evg_top_center),
+                html.Div([evg_top_left,evg_top_right]),
+            ]
+        )
+
+    elif tab == 'tab-2':
+        return html.Div(
+            children=[
+                html.Div(ooc_top_center),
+                html.Div([ooc_top_left,ooc_top_right]),
+                html.Div([ooc_bottom_left,ooc_bottom_right]),
+            ]        
+        )
+    #elif tab == 'tab-2':
+        #return html.Div([
+        #    html.H3(children='Service: KTX1',
+        #    style={
+        #        'color': mkrcolor, 
+        #        'display': 'inline-block',
+        #        'fontSize': 24,
+        #        'textAlign': 'center',
+        #        'background-color': ooclcolor,
+        #        'fontWeight': 'bold',
+        #        'margin' : '1em 0 0 1em',
+        #        'padding': '0.2em 0.5em 0.2em 0.5em'}),
+        #html.Div([
+        #dcc.Graph(
+        #    id='ooc_ktx1_obe',
+        #    figure=fig_ooc_ktx1_obe
+        #),
+
+        #dcc.Graph(
+        #    id='ooc_ktx1_tyo',
+        #    figure=fig_ooc_ktx1_tyo
+        #),
+
+        #dcc.Graph(
+        #    id='ooc_ktx1_osa',
+        #    figure=fig_ooc_ktx1_osa
+        #),
+
+        #dcc.Graph(
+        #    id='ooc_ktx1_yko',
+        #    figure=fig_ooc_ktx1_yko
+        #)
+        #],
+        #style={'columnCount':1})
+        #])    
+    elif tab == 'tab-3':
+        return html.Div(
+            children=[
+                html.Div(tsl_top_center),
+                html.Div([tsl_top_left,tsl_top_right]),
+                html.Div([tsl_bottom_left,tsl_bottom_right]),
+            ]        
+        )
 
 if __name__ == '__main__':
     app.run_server(debug=True)
