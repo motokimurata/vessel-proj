@@ -92,10 +92,10 @@ evg_y3 = target1['mean'][target1['POD'] == 'OSA']
 min_err_evg_y3= target1['mean'][target1['POD'] == 'OSA']-target1['min'][target1['POD'] == 'OSA']
 max_err_evg_y3= target1['max'][target1['POD'] == 'OSA']-target1['mean'][target1['POD'] == 'OSA']
 
-evg_x4 = target1['year_month'][target1['POD'] == 'YKO']
-evg_y4 = target1['mean'][target1['POD'] == 'YKO']
-min_err_evg_y4= target1['mean'][target1['POD'] == 'YKO']-target1['min'][target1['POD'] == 'YKO']
-max_err_evg_y4= target1['max'][target1['POD'] == 'YKO']-target1['mean'][target1['POD'] == 'YKO']
+evg_x4 = target1['year_month'][target1['POD'] == 'YOK']
+evg_y4 = target1['mean'][target1['POD'] == 'YOK']
+min_err_evg_y4= target1['mean'][target1['POD'] == 'YOK']-target1['min'][target1['POD'] == 'YOK']
+max_err_evg_y4= target1['max'][target1['POD'] == 'YOK']-target1['mean'][target1['POD'] == 'YOK']
 
 target2 = df_summary[(df_summary['Carrier'] == 'OOC')&(df_summary['Service'] == 'KTX1')]
 ooc_x1 = target2['year_month'][target2['POD'] == 'OBE']
@@ -113,10 +113,10 @@ ooc_y3 = target2['mean'][target2['POD'] == 'OSA']
 min_err_ooc_y3= target2['mean'][target2['POD'] == 'OSA']-target2['min'][target2['POD'] == 'OSA']
 max_err_ooc_y3= target2['max'][target2['POD'] == 'OSA']-target2['mean'][target2['POD'] == 'OSA']
 
-ooc_x4 = target2['year_month'][target2['POD'] == 'YKO']
-ooc_y4 = target2['mean'][target2['POD'] == 'YKO']
-min_err_ooc_y4= target2['mean'][target2['POD'] == 'YKO']-target2['min'][target2['POD'] == 'YKO']
-max_err_ooc_y4= target2['max'][target2['POD'] == 'YKO']-target2['mean'][target2['POD'] == 'YKO']
+ooc_x4 = target2['year_month'][target2['POD'] == 'YOK']
+ooc_y4 = target2['mean'][target2['POD'] == 'YOK']
+min_err_ooc_y4= target2['mean'][target2['POD'] == 'YOK']-target2['min'][target2['POD'] == 'YOK']
+max_err_ooc_y4= target2['max'][target2['POD'] == 'YOK']-target2['mean'][target2['POD'] == 'YOK']
 
 target3 = df_summary[(df_summary['Carrier'] == 'TSL')&(df_summary['Service'] == 'JTK')]
 tsl_x1 = target3['year_month'][target3['POD'] == 'OBE']
@@ -134,10 +134,31 @@ tsl_y3 = target3['mean'][target3['POD'] == 'OSA']
 min_err_tsl_y3= target3['mean'][target3['POD'] == 'OSA']-target3['min'][target3['POD'] == 'OSA']
 max_err_tsl_y3= target3['max'][target3['POD'] == 'OSA']-target3['mean'][target3['POD'] == 'OSA']
 
-tsl_x4 = target3['year_month'][target3['POD'] == 'YKO']
-tsl_y4 = target3['mean'][target3['POD'] == 'YKO']
-min_err_tsl_y4= target3['mean'][target3['POD'] == 'YKO']-target3['min'][target3['POD'] == 'YKO']
-max_err_tsl_y4= target3['max'][target3['POD'] == 'YKO']-target3['mean'][target3['POD'] == 'YKO']
+tsl_x4 = target3['year_month'][target3['POD'] == 'YOK']
+tsl_y4 = target3['mean'][target3['POD'] == 'YOK']
+min_err_tsl_y4= target3['mean'][target3['POD'] == 'YOK']-target3['min'][target3['POD'] == 'YOK']
+max_err_tsl_y4= target3['max'][target3['POD'] == 'YOK']-target3['mean'][target3['POD'] == 'YOK']
+
+target4 = df_summary[(df_summary['Carrier'] == 'TSL')&(df_summary['Service'] == 'JTK2')]
+tsl2_x1 = target4['year_month'][target4['POD'] == 'OBE']
+tsl2_y1 = target4['mean'][target4['POD'] == 'OBE']
+min_err_tsl2_y1= target4['mean'][target4['POD'] == 'OBE']-target4['min'][target4['POD'] == 'OBE']
+max_err_tsl2_y1= target4['max'][target4['POD'] == 'OBE']-target4['mean'][target4['POD'] == 'OBE']
+
+tsl2_x2 = target4['year_month'][target4['POD'] == 'TYO']
+tsl2_y2 = target4['mean'][target4['POD'] == 'TYO']
+min_err_tsl2_y2= target4['mean'][target4['POD'] == 'TYO']-target4['min'][target4['POD'] == 'TYO']
+max_err_tsl2_y2= target4['max'][target4['POD'] == 'TYO']-target4['mean'][target4['POD'] == 'TYO']
+
+tsl2_x3 = target4['year_month'][target4['POD'] == 'OSA']
+tsl2_y3 = target4['mean'][target4['POD'] == 'OSA']
+min_err_tsl2_y3= target4['mean'][target4['POD'] == 'OSA']-target4['min'][target4['POD'] == 'OSA']
+max_err_tsl2_y3= target4['max'][target4['POD'] == 'OSA']-target4['mean'][target4['POD'] == 'OSA']
+
+tsl2_x4 = target4['year_month'][target4['POD'] == 'YOK']
+tsl2_y4 = target4['mean'][target4['POD'] == 'YOK']
+min_err_tsl2_y4= target4['mean'][target4['POD'] == 'YOK']-target4['min'][target4['POD'] == 'YOK']
+max_err_tsl2_y4= target4['max'][target4['POD'] == 'YOK']-target4['mean'][target4['POD'] == 'YOK']
 
 
 #船会社別のマーカーと線の色
@@ -274,7 +295,7 @@ fig_evg_nsa_osa = go.Figure(data=go.Scatter(
             
     )
 
-fig_evg_nsa_yko = go.Figure(data=go.Scatter(
+fig_evg_nsa_yok = go.Figure(data=go.Scatter(
         x=evg_x4,
         y=evg_y4,
         error_y=dict(
@@ -438,7 +459,7 @@ fig_ooc_ktx1_osa = go.Figure(data=go.Scatter(
             
     )
 
-fig_ooc_ktx1_yko = go.Figure(data=go.Scatter(
+fig_ooc_ktx1_yok = go.Figure(data=go.Scatter(
         x=ooc_x4,
         y=ooc_y4,
         error_y=dict(
@@ -465,19 +486,17 @@ fig_ooc_ktx1_yko = go.Figure(data=go.Scatter(
             width=5,
             color= ooclcolor), 
         ),
-        layout=dict( #ダミーレイアウト
-            plot_bgcolor= bgcolor,
+        layout=dict(
+            plot_bgcolor= graphbgcolor,
             paper_bgcolor= bgcolor,
-            title='',
+            title='Pod:YOKOHAMA',
             title_x=.5,
             xaxis=dict(
                 showgrid=True,
-                title='Original Berthing month',
-                color= bgcolor
+                title='Original Berthing month'
                 ),
             yaxis=dict(
-                title='Average delay days',
-                color= bgcolor))
+                title='Average delay days'))
             
     )
 
@@ -605,7 +624,7 @@ fig_tsl_jtk_osa = go.Figure(data=go.Scatter(
             
     )
 
-fig_tsl_jtk_yko = go.Figure(data=go.Scatter(
+fig_tsl_jtk_yok = go.Figure(data=go.Scatter(
         x=tsl_x4,
         y=tsl_y4,
         error_y=dict(
@@ -632,19 +651,180 @@ fig_tsl_jtk_yko = go.Figure(data=go.Scatter(
             width=5,
             color= tslcolor), 
         ),
-        layout=dict( #ダミーレイアウト
-            plot_bgcolor= bgcolor,
+        layout=dict(
+            plot_bgcolor= graphbgcolor,
             paper_bgcolor= bgcolor,
-            title='',
+            title='Pod:YOKOHAMA',
             title_x=.5,
             xaxis=dict(
                 showgrid=True,
-                title='Original Berthing month',
-                color= bgcolor
+                title='Original Berthing month'
                 ),
             yaxis=dict(
-                title='Average delay days',
-                color= bgcolor))
+                title='Average delay days'))
+            
+    )
+fig_tsl_jtk2_obe = go.Figure(data=go.Scatter(
+        x=tsl2_x1,
+        y=tsl2_y1,
+        error_y=dict(
+            type='data',
+            symmetric=False,
+            array=max_err_tsl2_y1,
+            arrayminus=min_err_tsl2_y1,
+            width=3,
+            color= errbarcolor),
+        marker=dict(
+            color= mkrcolor,
+            size=10,
+            line=dict(
+                width=5,
+                color= tslcolor),
+            opacity=1.0),
+        mode='markers+lines+text',
+        textposition='top right',
+        texttemplate='%{y:.1f}',
+        textfont=dict(
+            size=15,
+            color= tslcolor),
+        line=dict(
+            width=5,
+            color= tslcolor), 
+        ),
+        layout=dict(
+            plot_bgcolor= graphbgcolor,
+            paper_bgcolor= bgcolor,
+            title='Pod:KOBE',
+            title_x=.5,
+            xaxis=dict(
+                showgrid=True,
+                title='Original Berthing month'
+                ),
+            yaxis=dict(
+                title='Average delay days'))
+            
+    )
+
+fig_tsl_jtk2_tyo = go.Figure(data=go.Scatter(
+        x=tsl2_x2,
+        y=tsl2_y2,
+        error_y=dict(
+            type='data',
+            symmetric=False,
+            array=max_err_tsl2_y2,
+            arrayminus=min_err_tsl2_y2,
+            width=3,
+            color= errbarcolor),
+        marker=dict(
+            color= mkrcolor,
+            size=10,
+            line=dict(
+                width=5,
+                color= tslcolor),
+            opacity=1.0),
+        mode='markers+lines+text',
+        textposition='top right',
+        texttemplate='%{y:.1f}',
+        textfont=dict(
+            size=15,
+            color= tslcolor),
+        line=dict(
+            width=5,
+            color= tslcolor), 
+        ),
+        layout=dict(
+            plot_bgcolor= graphbgcolor,
+            paper_bgcolor= bgcolor,
+            title='Pod:TOKYO',
+            title_x=.5,
+            xaxis=dict(
+                showgrid=True,
+                title='Original Berthing month'
+                ),
+            yaxis=dict(
+                title='Average delay days'))
+            
+    )
+
+fig_tsl_jtk2_osa = go.Figure(data=go.Scatter(
+        x=tsl2_x3,
+        y=tsl2_y3,
+        error_y=dict(
+            type='data',
+            symmetric=False,
+            array=max_err_tsl2_y3,
+            arrayminus=min_err_tsl2_y3,
+            width=3,
+            color= errbarcolor),
+        marker=dict(
+            color= mkrcolor,
+            size=10,
+            line=dict(
+                width=5,
+                color= tslcolor),
+            opacity=1.0),
+        mode='markers+lines+text',
+        textposition='top right',
+        texttemplate='%{y:.1f}',
+        textfont=dict(
+            size=15,
+            color= tslcolor),
+        line=dict(
+            width=5,
+            color= tslcolor), 
+        ),
+        layout=dict(
+            plot_bgcolor= graphbgcolor,
+            paper_bgcolor= bgcolor,
+            title='Pod:OSAKA',
+            title_x=.5,
+            xaxis=dict(
+                showgrid=True,
+                title='Original Berthing month'
+                ),
+            yaxis=dict(
+                title='Average delay days'))
+            
+    )
+
+fig_tsl_jtk2_yok = go.Figure(data=go.Scatter(
+        x=tsl2_x4,
+        y=tsl2_y4,
+        error_y=dict(
+            type='data',
+            symmetric=False,
+            array=max_err_tsl2_y4,
+            arrayminus=min_err_tsl2_y4,
+            width=3,
+            color= errbarcolor),
+        marker=dict(
+            color= mkrcolor,
+            size=10,
+            line=dict(
+                width=5,
+                color= tslcolor),
+            opacity=1.0),
+        mode='markers+lines+text',
+        textposition='top right',
+        texttemplate='%{y:.1f}',
+        textfont=dict(
+            size=15,
+            color= tslcolor),
+        line=dict(
+            width=5,
+            color= tslcolor), 
+        ),
+        layout=dict(
+            plot_bgcolor= graphbgcolor,
+            paper_bgcolor= bgcolor,
+            title='Pod:YOKOHAMA',
+            title_x=.5,
+            xaxis=dict(
+                showgrid=True,
+                title='Original Berthing month'
+                ),
+            yaxis=dict(
+                title='Average delay days'))
             
     )
 
@@ -745,92 +925,6 @@ app.layout =  html.Div([
         html.Div(id='tabs-example-content-a')
 ])
 
-
-@app.callback(
-    Output('tabs-example-content-a', 'children'),
-    [Input('tabs-example1', 'value')])
-def render_content(tab):
-    if tab == 'tab-a':
-        return html.Div([
-        dcc.Tabs(id='tabs-example', value='tab-1', 
-        children=[
-        dcc.Tab(
-            label='EVG', 
-            value='tab-1', 
-            style=tab_style, 
-            selected_style=tab_selected_style
-        ),
-        dcc.Tab(
-            label='OOCL', 
-            value='tab-2', 
-            style=tab_style, 
-            selected_style=tab_selected_style
-        ),
-        dcc.Tab(
-            label='TSL', 
-            value='tab-3', 
-            style=tab_style, 
-            selected_style=tab_selected_style
-        ),
-        ],
-        style={
-            'padding':'4em 0 0 0',
-            'background-color' :'#FFFFFF'        
-            }
-        ),
-        html.Div(id='tabs-example-content-1')
-        ])
-
-    elif tab == 'tab-b':
-        return html.Div(
-        children=[
-            dcc.Dropdown(
-                id='carrier-dropdown',
-                options=[
-                    {'label': 'ONE',
-                    'value': 'ONE'},
-                    {'label': 'SAS',
-                    'value': 'SAS'},
-                    {'label': 'OOC',
-                    'value': 'OOC'},
-                    {'label': 'WHL',
-                    'value': 'WHL'},
-                    {'label': 'EVG',
-                    'value': 'EVG'},
-                    {'label': 'CMA',
-                    'value': 'CMA'},
-                    {'label': 'TSL',
-                    'value': 'TSL'}    
-                ], 
-                style={
-                'margin': '2em 0 0 0',         
-                },
-                value= ['OOC', 'EVG','SAS','TSL','WHL','ONE'],
-                multi=True
-            ),
-            html.Div(id='output-container', style={"margin": "5%"})
-        ] 
-    )
-
-
-@app.callback(
-    Output('output-container', 'children'),
-    [Input('carrier-dropdown', 'value')])
-def input_triggers_spinner(value):
-    df_out=pd.DataFrame(columns=header)
-    for cnt in range (len(value)):
-        df_filtered = df_origin[df["Carrier"] == value[cnt]]
-        df_out = pd.concat([df_out,df_filtered])
-    output_table = dash_table.DataTable(
-        id='table',
-        columns=[{"name": i, "id": i} for i in df.columns],
-        data=df_out.to_dict('records'),
-        filter_action='native',
-        export_format='csv',
-    )
-    return output_table
-
-### ここからテスト
 div_style = {
     "width" : "50%",
     "display":"inline-block"
@@ -882,6 +976,20 @@ tsl_top_center = html.Div(
     ]
 )
 
+tsl2_top_center = html.Div(
+    [
+        html.H3(children='Service: JTK2',
+            style={
+                'color': mkrcolor, 
+                'display': 'inline-block',
+                'fontSize': 24,
+                'textAlign': 'center',
+                'background-color': tslcolor,
+                'fontWeight': 'bold',
+                'margin' : '1em 0 0 1em',
+                'padding': '0.2em 0.5em 0.2em 0.5em'})
+    ]
+)
 evg_top_left = html.Div(
     [
         dcc.Graph(
@@ -935,12 +1043,13 @@ ooc_bottom_left = html.Div(
 ooc_bottom_right = html.Div(
     [
         dcc.Graph(
-            id='ooc_ktx1_yko',
-            figure=fig_ooc_ktx1_yko
+            id='ooc_ktx1_yok',
+            figure=fig_ooc_ktx1_yok
         )
     ],
     style=div_style,
 )
+
 tsl_top_left = html.Div(
     [
         dcc.Graph(
@@ -974,8 +1083,48 @@ tsl_bottom_left = html.Div(
 tsl_bottom_right = html.Div(
     [
         dcc.Graph(
-            id='tsl_jtk_yko',
-            figure=fig_tsl_jtk_yko
+            id='tsl_jtk_yok',
+            figure=fig_tsl_jtk_yok
+        )
+    ],
+    style=div_style,
+)
+
+tsl2_top_left = html.Div(
+    [
+        dcc.Graph(
+            id='tsl_jtk2_obe',
+            figure= fig_tsl_jtk2_obe
+        )
+    ],
+    style=div_style,
+)
+
+tsl2_top_right = html.Div(
+    [
+        dcc.Graph(
+            id='tsl_jtk2_osa',
+            figure=fig_tsl_jtk2_osa
+        )
+    ],
+    style=div_style,
+)
+
+tsl2_bottom_left = html.Div(
+    [
+        dcc.Graph(
+            id='tsl_jtk2_tyo',
+            figure= fig_tsl_jtk2_tyo
+        )
+    ],
+    style=div_style,
+)
+
+tsl2_bottom_right = html.Div(
+    [
+        dcc.Graph(
+            id='tsl_jtk2_yok',
+            figure=fig_tsl_jtk2_yok
         )
     ],
     style=div_style,
@@ -983,36 +1132,93 @@ tsl_bottom_right = html.Div(
 
 
 @app.callback(
+    Output('tabs-example-content-a', 'children'),
+    [Input('tabs-example1', 'value')])
+def render_content(tab):
+    if tab == 'tab-a':
+        return html.Div([
+        dcc.Tabs(id='tabs-example', value='tab-1', 
+        children=[
+        dcc.Tab(
+            label='EVG', 
+            value='tab-1', 
+            style=tab_style, 
+            selected_style=tab_selected_style
+        ),
+        dcc.Tab(
+            label='OOCL', 
+            value='tab-2', 
+            style=tab_style, 
+            selected_style=tab_selected_style
+        ),
+        dcc.Tab(
+            label='TSL', 
+            value='tab-3', 
+            style=tab_style, 
+            selected_style=tab_selected_style
+        ),
+        ],
+        style={
+            'padding':'4em 0 0 0',
+            'background-color' :'#FFFFFF'        
+            }
+        ),
+        html.Div(id='tabs-example-content-1')
+        ])
+        
+    elif tab == 'tab-b':
+        return html.Div(
+        children=[
+            dcc.Dropdown(
+                id='carrier-dropdown',
+                options=[
+                    {'label': 'ONE',
+                    'value': 'ONE'},
+                    {'label': 'SAS',
+                    'value': 'SAS'},
+                    {'label': 'OOC',
+                    'value': 'OOC'},
+                    {'label': 'WHL',
+                    'value': 'WHL'},
+                    {'label': 'EVG',
+                    'value': 'EVG'},
+                    {'label': 'CMA',
+                    'value': 'CMA'},
+                    {'label': 'TSL',
+                    'value': 'TSL'}    
+                ], 
+                style={
+                'margin': '2em 0 0 0',         
+                },
+                value= ['OOC', 'EVG','SAS','TSL','WHL','ONE'],
+                multi=True
+            ),
+            html.Div(id='output-container', style={"margin": "5%"})
+        ] 
+    )
+
+
+@app.callback(
+    Output('output-container', 'children'),
+    [Input('carrier-dropdown', 'value')])
+def input_triggers_spinner(value):
+    df_out=pd.DataFrame(columns=header)
+    for cnt in range (len(value)):
+        df_filtered = df_origin[df["Carrier"] == value[cnt]]
+        df_out = pd.concat([df_out,df_filtered])
+    output_table = dash_table.DataTable(
+        id='table',
+        columns=[{"name": i, "id": i} for i in df.columns],
+        data=df_out.to_dict('records'),
+        filter_action='native',
+        export_format='csv',
+    )
+    return output_table
+
+@app.callback(
     Output('tabs-example-content-1', 'children'),
     [Input('tabs-example', 'value')])
-
 def render_content(tab):
-    #if tab == 'tab-1':
-        #return html.Div([
-                #html.H3(children='Service: NSA',
-                #style={
-                #'color': mkrcolor, 
-                #'display': 'inline-block',
-                #'fontSize': 24,
-                #'textAlign': 'center',
-                #'background-color': evgcolor,
-                #'fontWeight': 'bold',
-                #'margin' : '1em 0 0 1em',
-                #'padding': '0.2em 0.5em 0.2em 0.5em'}),
-                #html.Div([
-                #dcc.Graph(
-                    #id='evg_nsa_obe',
-                    #figure=fig_evg_nsa_obe
-                #),
-
-                #dcc.Graph(
-                    #id='evg-nsa-osa',
-                    #figure=fig_evg_nsa_osa     
-                #)
-            #],
-            #style={'columnCount':2})
-        #])
-        
     if tab == 'tab-1':
         return html.Div(
             children=[
@@ -1020,7 +1226,6 @@ def render_content(tab):
                 html.Div([evg_top_left,evg_top_right]),
             ]
         )
-
     elif tab == 'tab-2':
         return html.Div(
             children=[
@@ -1029,47 +1234,57 @@ def render_content(tab):
                 html.Div([ooc_bottom_left,ooc_bottom_right]),
             ]        
         )
-    #elif tab == 'tab-2':
-        #return html.Div([
-        #    html.H3(children='Service: KTX1',
-        #    style={
-        #        'color': mkrcolor, 
-        #        'display': 'inline-block',
-        #        'fontSize': 24,
-        #        'textAlign': 'center',
-        #        'background-color': ooclcolor,
-        #        'fontWeight': 'bold',
-        #        'margin' : '1em 0 0 1em',
-        #        'padding': '0.2em 0.5em 0.2em 0.5em'}),
-        #html.Div([
-        #dcc.Graph(
-        #    id='ooc_ktx1_obe',
-        #    figure=fig_ooc_ktx1_obe
-        #),
-
-        #dcc.Graph(
-        #    id='ooc_ktx1_tyo',
-        #    figure=fig_ooc_ktx1_tyo
-        #),
-
-        #dcc.Graph(
-        #    id='ooc_ktx1_osa',
-        #    figure=fig_ooc_ktx1_osa
-        #),
-
-        #dcc.Graph(
-        #    id='ooc_ktx1_yko',
-        #    figure=fig_ooc_ktx1_yko
+    #elif tab == 'tab-3':
+        #return html.Div(
+            #children=[
+                #html.Div(tsl2_top_center),
+                #html.Div([tsl2_top_left,tsl2_top_right]),
+                #html.Div([tsl2_bottom_left,tsl2_bottom_right]),
+            #]        
         #)
-        #],
-        #style={'columnCount':1})
-        #])    
     elif tab == 'tab-3':
+        return html.Div([
+        dcc.Tabs(id='tabs-tsl-example', value='tab-jtk', 
+        children=[
+        dcc.Tab(
+            label='JTK', 
+            value='tab-jtk', 
+            style=tab_style, 
+            selected_style=tab_selected_style
+        ),
+        dcc.Tab(
+            label='JTK2', 
+            value='tab-jtk2', 
+            style=tab_style, 
+            selected_style=tab_selected_style
+        ),
+        ],
+        style={
+            'padding':'4em 0 0 0',
+            'background-color' :'#FFFFFF'        
+            }
+        ),
+        html.Div(id='tabs-example-content-tsl')
+        ])
+        
+@app.callback(
+    Output('tabs-example-content-tsl', 'children'),
+    [Input('tabs-tsl-example', 'value')])
+def render_content(value):
+    if value == 'tab-jtk':
         return html.Div(
             children=[
                 html.Div(tsl_top_center),
                 html.Div([tsl_top_left,tsl_top_right]),
                 html.Div([tsl_bottom_left,tsl_bottom_right]),
+            ]        
+        )
+    elif value == 'tab-jtk2':
+        return html.Div(
+            children=[
+                html.Div(tsl2_top_center),
+                html.Div([tsl2_top_left,tsl2_top_right]),
+                html.Div([tsl2_bottom_left,tsl2_bottom_right]),
             ]        
         )
 
