@@ -97,6 +97,48 @@ evg_y4 = target1['mean'][target1['POD'] == 'YOK']
 min_err_evg_y4= target1['mean'][target1['POD'] == 'YOK']-target1['min'][target1['POD'] == 'YOK']
 max_err_evg_y4= target1['max'][target1['POD'] == 'YOK']-target1['mean'][target1['POD'] == 'YOK']
 
+target5 = df_summary[(df_summary['Carrier'] == 'EVG')&(df_summary['Service'] == 'NSC')]
+evg2_x1 = target5['year_month'][target5['POD'] == 'OBE']
+evg2_y1 = target5['mean'][target5['POD'] == 'OBE']
+min_err_evg2_y1= target5['mean'][target5['POD'] == 'OBE']-target5['min'][target5['POD'] == 'OBE']
+max_err_evg2_y1= target5['max'][target5['POD'] == 'OBE']-target5['mean'][target5['POD'] == 'OBE']
+
+evg2_x2 = target5['year_month'][target5['POD'] == 'TYO']
+evg2_y2 = target5['mean'][target5['POD'] == 'TYO']
+min_err_evg2_y2= target5['mean'][target5['POD'] == 'TYO']-target5['min'][target5['POD'] == 'TYO']
+max_err_evg2_y2= target5['max'][target5['POD'] == 'TYO']-target5['mean'][target5['POD'] == 'TYO']
+
+evg2_x3 = target5['year_month'][target5['POD'] == 'OSA']
+evg2_y3 = target5['mean'][target5['POD'] == 'OSA']
+min_err_evg2_y3= target5['mean'][target5['POD'] == 'OSA']-target5['min'][target5['POD'] == 'OSA']
+max_err_evg2_y3= target5['max'][target5['POD'] == 'OSA']-target5['mean'][target5['POD'] == 'OSA']
+
+evg2_x4 = target5['year_month'][target5['POD'] == 'YOK']
+evg2_y4 = target5['mean'][target5['POD'] == 'YOK']
+min_err_evg2_y4= target5['mean'][target5['POD'] == 'YOK']-target5['min'][target5['POD'] == 'YOK']
+max_err_evg2_y4= target5['max'][target5['POD'] == 'YOK']-target5['mean'][target5['POD'] == 'YOK']
+
+target6 = df_summary[(df_summary['Carrier'] == 'EVG')&(df_summary['Service'] == 'NSD')]
+evg3_x1 = target6['year_month'][target6['POD'] == 'OBE']
+evg3_y1 = target6['mean'][target6['POD'] == 'OBE']
+min_err_evg3_y1= target6['mean'][target6['POD'] == 'OBE']-target6['min'][target6['POD'] == 'OBE']
+max_err_evg3_y1= target6['max'][target6['POD'] == 'OBE']-target6['mean'][target6['POD'] == 'OBE']
+
+evg3_x2 = target6['year_month'][target6['POD'] == 'TYO']
+evg3_y2 = target6['mean'][target6['POD'] == 'TYO']
+min_err_evg3_y2= target6['mean'][target6['POD'] == 'TYO']-target6['min'][target6['POD'] == 'TYO']
+max_err_evg3_y2= target6['max'][target6['POD'] == 'TYO']-target6['mean'][target6['POD'] == 'TYO']
+
+evg3_x3 = target6['year_month'][target6['POD'] == 'OSA']
+evg3_y3 = target6['mean'][target6['POD'] == 'OSA']
+min_err_evg3_y3= target6['mean'][target6['POD'] == 'OSA']-target6['min'][target6['POD'] == 'OSA']
+max_err_evg3_y3= target6['max'][target6['POD'] == 'OSA']-target6['mean'][target6['POD'] == 'OSA']
+
+evg3_x4 = target6['year_month'][target6['POD'] == 'YOK']
+evg3_y4 = target6['mean'][target6['POD'] == 'YOK']
+min_err_evg3_y4= target6['mean'][target6['POD'] == 'YOK']-target6['min'][target6['POD'] == 'YOK']
+max_err_evg3_y4= target6['max'][target6['POD'] == 'YOK']-target6['mean'][target6['POD'] == 'YOK']
+
 target2 = df_summary[(df_summary['Carrier'] == 'OOC')&(df_summary['Service'] == 'KTX1')]
 ooc_x1 = target2['year_month'][target2['POD'] == 'OBE']
 ooc_y1 = target2['mean'][target2['POD'] == 'OBE']
@@ -117,6 +159,69 @@ ooc_x4 = target2['year_month'][target2['POD'] == 'YOK']
 ooc_y4 = target2['mean'][target2['POD'] == 'YOK']
 min_err_ooc_y4= target2['mean'][target2['POD'] == 'YOK']-target2['min'][target2['POD'] == 'YOK']
 max_err_ooc_y4= target2['max'][target2['POD'] == 'YOK']-target2['mean'][target2['POD'] == 'YOK']
+
+target7 = df_summary[(df_summary['Carrier'] == 'OOC')&(df_summary['Service'] == 'KTX2')]
+ooc2_x1 = target7['year_month'][target7['POD'] == 'OBE']
+ooc2_y1 = target7['mean'][target7['POD'] == 'OBE']
+min_err_ooc2_y1= target7['mean'][target7['POD'] == 'OBE']-target7['min'][target7['POD'] == 'OBE']
+max_err_ooc2_y1= target7['max'][target7['POD'] == 'OBE']-target7['mean'][target7['POD'] == 'OBE']
+
+ooc2_x2 = target7['year_month'][target7['POD'] == 'TYO']
+ooc2_y2 = target7['mean'][target7['POD'] == 'TYO']
+min_err_ooc2_y2= target7['mean'][target7['POD'] == 'TYO']-target7['min'][target7['POD'] == 'TYO']
+max_err_ooc2_y2= target7['max'][target7['POD'] == 'TYO']-target7['mean'][target7['POD'] == 'TYO']
+
+ooc2_x3 = target7['year_month'][target7['POD'] == 'OSA']
+ooc2_y3 = target7['mean'][target7['POD'] == 'OSA']
+min_err_ooc2_y3= target7['mean'][target7['POD'] == 'OSA']-target7['min'][target7['POD'] == 'OSA']
+max_err_ooc2_y3= target7['max'][target7['POD'] == 'OSA']-target7['mean'][target7['POD'] == 'OSA']
+
+ooc2_x4 = target7['year_month'][target7['POD'] == 'YOK']
+ooc2_y4 = target7['mean'][target7['POD'] == 'YOK']
+min_err_ooc2_y4= target7['mean'][target7['POD'] == 'YOK']-target7['min'][target7['POD'] == 'YOK']
+max_err_ooc2_y4= target7['max'][target7['POD'] == 'YOK']-target7['mean'][target7['POD'] == 'YOK']
+
+target8 = df_summary[(df_summary['Carrier'] == 'OOC')&(df_summary['Service'] == 'KTX6')]
+ooc3_x1 = target8['year_month'][target8['POD'] == 'OBE']
+ooc3_y1 = target8['mean'][target8['POD'] == 'OBE']
+min_err_ooc3_y1= target8['mean'][target8['POD'] == 'OBE']-target8['min'][target8['POD'] == 'OBE']
+max_err_ooc3_y1= target8['max'][target8['POD'] == 'OBE']-target8['mean'][target8['POD'] == 'OBE']
+
+ooc3_x2 = target8['year_month'][target8['POD'] == 'TYO']
+ooc3_y2 = target8['mean'][target8['POD'] == 'TYO']
+min_err_ooc3_y2= target8['mean'][target8['POD'] == 'TYO']-target8['min'][target8['POD'] == 'TYO']
+max_err_ooc3_y2= target8['max'][target8['POD'] == 'TYO']-target8['mean'][target8['POD'] == 'TYO']
+
+ooc3_x3 = target8['year_month'][target8['POD'] == 'OSA']
+ooc3_y3 = target8['mean'][target8['POD'] == 'OSA']
+min_err_ooc3_y3= target8['mean'][target8['POD'] == 'OSA']-target8['min'][target8['POD'] == 'OSA']
+max_err_ooc3_y3= target8['max'][target8['POD'] == 'OSA']-target8['mean'][target8['POD'] == 'OSA']
+
+ooc3_x4 = target8['year_month'][target8['POD'] == 'YOK']
+ooc3_y4 = target8['mean'][target8['POD'] == 'YOK']
+min_err_ooc3_y4= target8['mean'][target8['POD'] == 'YOK']-target8['min'][target8['POD'] == 'YOK']
+max_err_ooc3_y4= target8['max'][target8['POD'] == 'YOK']-target8['mean'][target8['POD'] == 'YOK']
+
+target9 = df_summary[(df_summary['Carrier'] == 'OOC')&(df_summary['Service'] == 'KTX3')]
+ooc6_x1 = target9['year_month'][target9['POD'] == 'OBE']
+ooc6_y1 = target9['mean'][target9['POD'] == 'OBE']
+min_err_ooc6_y1= target9['mean'][target9['POD'] == 'OBE']-target9['min'][target9['POD'] == 'OBE']
+max_err_ooc6_y1= target9['max'][target9['POD'] == 'OBE']-target9['mean'][target9['POD'] == 'OBE']
+
+ooc6_x2 = target9['year_month'][target9['POD'] == 'TYO']
+ooc6_y2 = target9['mean'][target9['POD'] == 'TYO']
+min_err_ooc6_y2= target9['mean'][target9['POD'] == 'TYO']-target9['min'][target9['POD'] == 'TYO']
+max_err_ooc6_y2= target9['max'][target9['POD'] == 'TYO']-target9['mean'][target9['POD'] == 'TYO']
+
+ooc6_x3 = target9['year_month'][target9['POD'] == 'OSA']
+ooc6_y3 = target9['mean'][target9['POD'] == 'OSA']
+min_err_ooc6_y3= target9['mean'][target9['POD'] == 'OSA']-target9['min'][target9['POD'] == 'OSA']
+max_err_ooc6_y3= target9['max'][target9['POD'] == 'OSA']-target9['mean'][target9['POD'] == 'OSA']
+
+ooc6_x4 = target9['year_month'][target9['POD'] == 'YOK']
+ooc6_y4 = target9['mean'][target9['POD'] == 'YOK']
+min_err_ooc6_y4= target9['mean'][target9['POD'] == 'YOK']-target9['min'][target9['POD'] == 'YOK']
+max_err_ooc6_y4= target9['max'][target9['POD'] == 'YOK']-target9['mean'][target9['POD'] == 'YOK']
 
 target3 = df_summary[(df_summary['Carrier'] == 'TSL')&(df_summary['Service'] == 'JTK')]
 tsl_x1 = target3['year_month'][target3['POD'] == 'OBE']
@@ -336,6 +441,334 @@ fig_evg_nsa_yok = go.Figure(data=go.Scatter(
             
     )
 
+fig_evg_nsc_obe = go.Figure(data=go.Scatter(
+        x=evg2_x1,
+        y=evg2_y1,
+        error_y=dict(
+            type='data',
+            symmetric=False,
+            array=max_err_evg2_y1,
+            arrayminus=min_err_evg2_y1,
+            width=3,
+            color= errbarcolor),
+        marker=dict(
+            color= mkrcolor,
+            size=10,
+            line=dict(
+                width=5,
+                color= evgcolor),
+            opacity=1.0),
+        mode='markers+lines+text',
+        textposition='top right',
+        texttemplate='%{y:.1f}',
+        textfont=dict(
+            size=15,
+            color= evgcolor),
+        line=dict(
+            width=5,
+            color= evgcolor), 
+        ),
+        layout=dict(
+            plot_bgcolor= graphbgcolor,
+            paper_bgcolor= bgcolor,
+            title='Pod:KOBE',
+            title_x=.5,
+            xaxis=dict(
+                showgrid=True,
+                title='Original Berthing month'
+                ),
+            yaxis=dict(
+                title='Average delay days'))
+            
+    )
+
+fig_evg_nsc_tyo = go.Figure(data=go.Scatter(
+        x=evg2_x2,
+        y=evg2_y2,
+        error_y=dict(
+            type='data',
+            symmetric=False,
+            array=max_err_evg2_y2,
+            arrayminus=min_err_evg2_y2,
+            width=3,
+            color= errbarcolor),
+        marker=dict(
+            color= mkrcolor,
+            size=10,
+            line=dict(
+                width=5,
+                color= evgcolor),
+            opacity=1.0),
+        mode='markers+lines+text',
+        textposition='top right',
+        texttemplate='%{y:.1f}',
+        textfont=dict(
+            size=15,
+            color= evgcolor),
+        line=dict(
+            width=5,
+            color= evgcolor), 
+        ),
+        layout=dict(
+            plot_bgcolor= graphbgcolor,
+            paper_bgcolor= bgcolor,
+            title='Pod:TOKYO',
+            title_x=.5,
+            xaxis=dict(
+                showgrid=True,
+                title='Original Berthing month'
+                ),
+            yaxis=dict(
+                title='Average delay days'))
+            
+    )
+
+fig_evg_nsc_osa = go.Figure(data=go.Scatter(
+        x=evg2_x3,
+        y=evg2_y3,
+        error_y=dict(
+            type='data',
+            symmetric=False,
+            array=max_err_evg2_y3,
+            arrayminus=min_err_evg2_y3,
+            width=3,
+            color= errbarcolor),
+        marker=dict(
+            color= mkrcolor,
+            size=10,
+            line=dict(
+                width=5,
+                color= evgcolor),
+            opacity=1.0),
+        mode='markers+lines+text',
+        textposition='top right',
+        texttemplate='%{y:.1f}',
+        textfont=dict(
+            size=15,
+            color= evgcolor),
+        line=dict(
+            width=5,
+            color= evgcolor), 
+        ),
+        layout=dict(
+            plot_bgcolor= graphbgcolor,
+            paper_bgcolor= bgcolor,
+            title='Pod:OSAKA',
+            title_x=.5,
+            xaxis=dict(
+                showgrid=True,
+                title='Original Berthing month'
+                ),
+            yaxis=dict(
+                title='Average delay days'))
+            
+    )
+
+fig_evg_nsc_yok = go.Figure(data=go.Scatter(
+        x=evg2_x4,
+        y=evg2_y4,
+        error_y=dict(
+            type='data',
+            symmetric=False,
+            array=max_err_evg2_y4,
+            arrayminus=min_err_evg2_y4,
+            width=3,
+            color= errbarcolor),
+        marker=dict(
+            color= mkrcolor,
+            size=10,
+            line=dict(
+                width=5,
+                color= evgcolor),
+            opacity=1.0),
+        mode='markers+lines+text',
+        textposition='top right',
+        texttemplate='%{y:.1f}',
+        textfont=dict(
+            size=15,
+            color= evgcolor),
+        line=dict(
+            width=5,
+            color= evgcolor), 
+        ),
+        layout=dict(
+            plot_bgcolor= graphbgcolor,
+            paper_bgcolor= bgcolor,
+            title='Pod:YOKOHAMA',
+            title_x=.5,
+            xaxis=dict(
+                showgrid=True,
+                title='Original Berthing month'
+                ),
+            yaxis=dict(
+                title='Average delay days'))
+            
+    )
+
+fig_evg_nsd_obe = go.Figure(data=go.Scatter(
+        x=evg3_x1,
+        y=evg3_y1,
+        error_y=dict(
+            type='data',
+            symmetric=False,
+            array=max_err_evg3_y1,
+            arrayminus=min_err_evg3_y1,
+            width=3,
+            color= errbarcolor),
+        marker=dict(
+            color= mkrcolor,
+            size=10,
+            line=dict(
+                width=5,
+                color= evgcolor),
+            opacity=1.0),
+        mode='markers+lines+text',
+        textposition='top right',
+        texttemplate='%{y:.1f}',
+        textfont=dict(
+            size=15,
+            color= evgcolor),
+        line=dict(
+            width=5,
+            color= evgcolor), 
+        ),
+        layout=dict(
+            plot_bgcolor= graphbgcolor,
+            paper_bgcolor= bgcolor,
+            title='Pod:KOBE',
+            title_x=.5,
+            xaxis=dict(
+                showgrid=True,
+                title='Original Berthing month'
+                ),
+            yaxis=dict(
+                title='Average delay days'))
+            
+    )
+
+fig_evg_nsd_tyo = go.Figure(data=go.Scatter(
+        x=evg3_x2,
+        y=evg3_y2,
+        error_y=dict(
+            type='data',
+            symmetric=False,
+            array=max_err_evg3_y2,
+            arrayminus=min_err_evg3_y2,
+            width=3,
+            color= errbarcolor),
+        marker=dict(
+            color= mkrcolor,
+            size=10,
+            line=dict(
+                width=5,
+                color= evgcolor),
+            opacity=1.0),
+        mode='markers+lines+text',
+        textposition='top right',
+        texttemplate='%{y:.1f}',
+        textfont=dict(
+            size=15,
+            color= evgcolor),
+        line=dict(
+            width=5,
+            color= evgcolor), 
+        ),
+        layout=dict(
+            plot_bgcolor= graphbgcolor,
+            paper_bgcolor= bgcolor,
+            title='Pod:TOKYO',
+            title_x=.5,
+            xaxis=dict(
+                showgrid=True,
+                title='Original Berthing month'
+                ),
+            yaxis=dict(
+                title='Average delay days'))
+            
+    )
+
+fig_evg_nsd_osa = go.Figure(data=go.Scatter(
+        x=evg3_x3,
+        y=evg3_y3,
+        error_y=dict(
+            type='data',
+            symmetric=False,
+            array=max_err_evg3_y3,
+            arrayminus=min_err_evg3_y3,
+            width=3,
+            color= errbarcolor),
+        marker=dict(
+            color= mkrcolor,
+            size=10,
+            line=dict(
+                width=5,
+                color= evgcolor),
+            opacity=1.0),
+        mode='markers+lines+text',
+        textposition='top right',
+        texttemplate='%{y:.1f}',
+        textfont=dict(
+            size=15,
+            color= evgcolor),
+        line=dict(
+            width=5,
+            color= evgcolor), 
+        ),
+        layout=dict(
+            plot_bgcolor= graphbgcolor,
+            paper_bgcolor= bgcolor,
+            title='Pod:OSAKA',
+            title_x=.5,
+            xaxis=dict(
+                showgrid=True,
+                title='Original Berthing month'
+                ),
+            yaxis=dict(
+                title='Average delay days'))
+            
+    )
+
+fig_evg_nsd_yok = go.Figure(data=go.Scatter(
+        x=evg3_x4,
+        y=evg3_y4,
+        error_y=dict(
+            type='data',
+            symmetric=False,
+            array=max_err_evg3_y4,
+            arrayminus=min_err_evg3_y4,
+            width=3,
+            color= errbarcolor),
+        marker=dict(
+            color= mkrcolor,
+            size=10,
+            line=dict(
+                width=5,
+                color= evgcolor),
+            opacity=1.0),
+        mode='markers+lines+text',
+        textposition='top right',
+        texttemplate='%{y:.1f}',
+        textfont=dict(
+            size=15,
+            color= evgcolor),
+        line=dict(
+            width=5,
+            color= evgcolor), 
+        ),
+        layout=dict(
+            plot_bgcolor= graphbgcolor,
+            paper_bgcolor= bgcolor,
+            title='Pod:YOKOHAMA',
+            title_x=.5,
+            xaxis=dict(
+                showgrid=True,
+                title='Original Berthing month'
+                ),
+            yaxis=dict(
+                title='Average delay days'))
+            
+    )
+
 fig_ooc_ktx1_obe = go.Figure(data=go.Scatter(
         x=ooc_x1,
         y=ooc_y1,
@@ -467,6 +900,497 @@ fig_ooc_ktx1_yok = go.Figure(data=go.Scatter(
             symmetric=False,
             array=max_err_ooc_y4,
             arrayminus=min_err_ooc_y4,
+            width=3,
+            color= errbarcolor),
+        marker=dict(
+            color= mkrcolor,
+            size=10,
+            line=dict(
+                width=5,
+                color= ooclcolor),
+            opacity=1.0),
+        mode='markers+lines+text',
+        textposition='top right',
+        texttemplate='%{y:.1f}',
+        textfont=dict(
+            size=15,
+            color= ooclcolor),
+        line=dict(
+            width=5,
+            color= ooclcolor), 
+        ),
+        layout=dict(
+            plot_bgcolor= graphbgcolor,
+            paper_bgcolor= bgcolor,
+            title='Pod:YOKOHAMA',
+            title_x=.5,
+            xaxis=dict(
+                showgrid=True,
+                title='Original Berthing month'
+                ),
+            yaxis=dict(
+                title='Average delay days'))
+            
+    )
+
+fig_ooc_ktx2_obe = go.Figure(data=go.Scatter(
+        x=ooc2_x1,
+        y=ooc2_y1,
+        error_y=dict(
+            type='data',
+            symmetric=False,
+            array=max_err_ooc2_y1,
+            arrayminus=min_err_ooc2_y1,
+            width=3,
+            color= errbarcolor),
+        marker=dict(
+            color= mkrcolor,
+            size=10,
+            line=dict(
+                width=5,
+                color= ooclcolor),
+            opacity=1.0),
+        mode='markers+lines+text',
+        textposition='top right',
+        texttemplate='%{y:.1f}',
+        textfont=dict(
+            size=15,
+            color= ooclcolor),
+        line=dict(
+            width=5,
+            color= ooclcolor), 
+        ),
+        layout=dict(
+            plot_bgcolor= graphbgcolor,
+            paper_bgcolor= bgcolor,
+            title='Pod:KOBE',
+            title_x=.5,
+            xaxis=dict(
+                showgrid=True,
+                title='Original Berthing month'
+                ),
+            yaxis=dict(
+                title='Average delay days'))
+            
+    )
+
+fig_ooc_ktx2_tyo = go.Figure(data=go.Scatter(
+        x=ooc2_x2,
+        y=ooc2_y2,
+        error_y=dict(
+            type='data',
+            symmetric=False,
+            array=max_err_ooc2_y2,
+            arrayminus=min_err_ooc2_y2,
+            width=3,
+            color= errbarcolor),
+        marker=dict(
+            color= mkrcolor,
+            size=10,
+            line=dict(
+                width=5,
+                color= ooclcolor),
+            opacity=1.0),
+        mode='markers+lines+text',
+        textposition='top right',
+        texttemplate='%{y:.1f}',
+        textfont=dict(
+            size=15,
+            color= ooclcolor),
+        line=dict(
+            width=5,
+            color= ooclcolor), 
+        ),
+        layout=dict(
+            plot_bgcolor= graphbgcolor,
+            paper_bgcolor= bgcolor,
+            title='Pod:TOKYO',
+            title_x=.5,
+            xaxis=dict(
+                showgrid=True,
+                title='Original Berthing month'
+                ),
+            yaxis=dict(
+                title='Average delay days'))
+            
+    )
+
+fig_ooc_ktx2_osa = go.Figure(data=go.Scatter(
+        x=ooc2_x3,
+        y=ooc2_y3,
+        error_y=dict(
+            type='data',
+            symmetric=False,
+            array=max_err_ooc2_y3,
+            arrayminus=min_err_ooc2_y3,
+            width=3,
+            color= errbarcolor),
+        marker=dict(
+            color= mkrcolor,
+            size=10,
+            line=dict(
+                width=5,
+                color= ooclcolor),
+            opacity=1.0),
+        mode='markers+lines+text',
+        textposition='top right',
+        texttemplate='%{y:.1f}',
+        textfont=dict(
+            size=15,
+            color= ooclcolor),
+        line=dict(
+            width=5,
+            color= ooclcolor), 
+        ),
+        layout=dict(
+            plot_bgcolor= graphbgcolor,
+            paper_bgcolor= bgcolor,
+            title='Pod:OSAKA',
+            title_x=.5,
+            xaxis=dict(
+                showgrid=True,
+                title='Original Berthing month'
+                ),
+            yaxis=dict(
+                title='Average delay days'))
+            
+    )
+
+fig_ooc_ktx2_yok = go.Figure(data=go.Scatter(
+        x=ooc2_x4,
+        y=ooc2_y4,
+        error_y=dict(
+            type='data',
+            symmetric=False,
+            array=max_err_ooc2_y4,
+            arrayminus=min_err_ooc2_y4,
+            width=3,
+            color= errbarcolor),
+        marker=dict(
+            color= mkrcolor,
+            size=10,
+            line=dict(
+                width=5,
+                color= ooclcolor),
+            opacity=1.0),
+        mode='markers+lines+text',
+        textposition='top right',
+        texttemplate='%{y:.1f}',
+        textfont=dict(
+            size=15,
+            color= ooclcolor),
+        line=dict(
+            width=5,
+            color= ooclcolor), 
+        ),
+        layout=dict(
+            plot_bgcolor= graphbgcolor,
+            paper_bgcolor= bgcolor,
+            title='Pod:YOKOHAMA',
+            title_x=.5,
+            xaxis=dict(
+                showgrid=True,
+                title='Original Berthing month'
+                ),
+            yaxis=dict(
+                title='Average delay days'))
+            
+    )
+fig_ooc_ktx3_obe = go.Figure(data=go.Scatter(
+        x=ooc3_x1,
+        y=ooc3_y1,
+        error_y=dict(
+            type='data',
+            symmetric=False,
+            array=max_err_ooc3_y1,
+            arrayminus=min_err_ooc3_y1,
+            width=3,
+            color= errbarcolor),
+        marker=dict(
+            color= mkrcolor,
+            size=10,
+            line=dict(
+                width=5,
+                color= ooclcolor),
+            opacity=1.0),
+        mode='markers+lines+text',
+        textposition='top right',
+        texttemplate='%{y:.1f}',
+        textfont=dict(
+            size=15,
+            color= ooclcolor),
+        line=dict(
+            width=5,
+            color= ooclcolor), 
+        ),
+        layout=dict(
+            plot_bgcolor= graphbgcolor,
+            paper_bgcolor= bgcolor,
+            title='Pod:KOBE',
+            title_x=.5,
+            xaxis=dict(
+                showgrid=True,
+                title='Original Berthing month'
+                ),
+            yaxis=dict(
+                title='Average delay days'))
+            
+    )
+
+fig_ooc_ktx3_tyo = go.Figure(data=go.Scatter(
+        x=ooc3_x2,
+        y=ooc3_y2,
+        error_y=dict(
+            type='data',
+            symmetric=False,
+            array=max_err_ooc3_y2,
+            arrayminus=min_err_ooc3_y2,
+            width=3,
+            color= errbarcolor),
+        marker=dict(
+            color= mkrcolor,
+            size=10,
+            line=dict(
+                width=5,
+                color= ooclcolor),
+            opacity=1.0),
+        mode='markers+lines+text',
+        textposition='top right',
+        texttemplate='%{y:.1f}',
+        textfont=dict(
+            size=15,
+            color= ooclcolor),
+        line=dict(
+            width=5,
+            color= ooclcolor), 
+        ),
+        layout=dict(
+            plot_bgcolor= graphbgcolor,
+            paper_bgcolor= bgcolor,
+            title='Pod:TOKYO',
+            title_x=.5,
+            xaxis=dict(
+                showgrid=True,
+                title='Original Berthing month'
+                ),
+            yaxis=dict(
+                title='Average delay days'))
+            
+    )
+
+fig_ooc_ktx3_osa = go.Figure(data=go.Scatter(
+        x=ooc3_x3,
+        y=ooc3_y3,
+        error_y=dict(
+            type='data',
+            symmetric=False,
+            array=max_err_ooc3_y3,
+            arrayminus=min_err_ooc3_y3,
+            width=3,
+            color= errbarcolor),
+        marker=dict(
+            color= mkrcolor,
+            size=10,
+            line=dict(
+                width=5,
+                color= ooclcolor),
+            opacity=1.0),
+        mode='markers+lines+text',
+        textposition='top right',
+        texttemplate='%{y:.1f}',
+        textfont=dict(
+            size=15,
+            color= ooclcolor),
+        line=dict(
+            width=5,
+            color= ooclcolor), 
+        ),
+        layout=dict(
+            plot_bgcolor= graphbgcolor,
+            paper_bgcolor= bgcolor,
+            title='Pod:OSAKA',
+            title_x=.5,
+            xaxis=dict(
+                showgrid=True,
+                title='Original Berthing month'
+                ),
+            yaxis=dict(
+                title='Average delay days'))
+            
+    )
+
+fig_ooc_ktx3_yok = go.Figure(data=go.Scatter(
+        x=ooc3_x4,
+        y=ooc3_y4,
+        error_y=dict(
+            type='data',
+            symmetric=False,
+            array=max_err_ooc3_y4,
+            arrayminus=min_err_ooc3_y4,
+            width=3,
+            color= errbarcolor),
+        marker=dict(
+            color= mkrcolor,
+            size=10,
+            line=dict(
+                width=5,
+                color= ooclcolor),
+            opacity=1.0),
+        mode='markers+lines+text',
+        textposition='top right',
+        texttemplate='%{y:.1f}',
+        textfont=dict(
+            size=15,
+            color= ooclcolor),
+        line=dict(
+            width=5,
+            color= ooclcolor), 
+        ),
+        layout=dict(
+            plot_bgcolor= graphbgcolor,
+            paper_bgcolor= bgcolor,
+            title='Pod:YOKOHAMA',
+            title_x=.5,
+            xaxis=dict(
+                showgrid=True,
+                title='Original Berthing month'
+                ),
+            yaxis=dict(
+                title='Average delay days'))
+            
+    )
+
+fig_ooc_ktx6_obe = go.Figure(data=go.Scatter(
+        x=ooc6_x1,
+        y=ooc6_y1,
+        error_y=dict(
+            type='data',
+            symmetric=False,
+            array=max_err_ooc6_y1,
+            arrayminus=min_err_ooc6_y1,
+            width=3,
+            color= errbarcolor),
+        marker=dict(
+            color= mkrcolor,
+            size=10,
+            line=dict(
+                width=5,
+                color= ooclcolor),
+            opacity=1.0),
+        mode='markers+lines+text',
+        textposition='top right',
+        texttemplate='%{y:.1f}',
+        textfont=dict(
+            size=15,
+            color= ooclcolor),
+        line=dict(
+            width=5,
+            color= ooclcolor), 
+        ),
+        layout=dict(
+            plot_bgcolor= graphbgcolor,
+            paper_bgcolor= bgcolor,
+            title='Pod:KOBE',
+            title_x=.5,
+            xaxis=dict(
+                showgrid=True,
+                title='Original Berthing month'
+                ),
+            yaxis=dict(
+                title='Average delay days'))
+            
+    )
+
+fig_ooc_ktx6_tyo = go.Figure(data=go.Scatter(
+        x=ooc6_x2,
+        y=ooc6_y2,
+        error_y=dict(
+            type='data',
+            symmetric=False,
+            array=max_err_ooc6_y2,
+            arrayminus=min_err_ooc6_y2,
+            width=3,
+            color= errbarcolor),
+        marker=dict(
+            color= mkrcolor,
+            size=10,
+            line=dict(
+                width=5,
+                color= ooclcolor),
+            opacity=1.0),
+        mode='markers+lines+text',
+        textposition='top right',
+        texttemplate='%{y:.1f}',
+        textfont=dict(
+            size=15,
+            color= ooclcolor),
+        line=dict(
+            width=5,
+            color= ooclcolor), 
+        ),
+        layout=dict(
+            plot_bgcolor= graphbgcolor,
+            paper_bgcolor= bgcolor,
+            title='Pod:TOKYO',
+            title_x=.5,
+            xaxis=dict(
+                showgrid=True,
+                title='Original Berthing month'
+                ),
+            yaxis=dict(
+                title='Average delay days'))
+            
+    )
+
+fig_ooc_ktx6_osa = go.Figure(data=go.Scatter(
+        x=ooc6_x3,
+        y=ooc6_y3,
+        error_y=dict(
+            type='data',
+            symmetric=False,
+            array=max_err_ooc6_y3,
+            arrayminus=min_err_ooc6_y3,
+            width=3,
+            color= errbarcolor),
+        marker=dict(
+            color= mkrcolor,
+            size=10,
+            line=dict(
+                width=5,
+                color= ooclcolor),
+            opacity=1.0),
+        mode='markers+lines+text',
+        textposition='top right',
+        texttemplate='%{y:.1f}',
+        textfont=dict(
+            size=15,
+            color= ooclcolor),
+        line=dict(
+            width=5,
+            color= ooclcolor), 
+        ),
+        layout=dict(
+            plot_bgcolor= graphbgcolor,
+            paper_bgcolor= bgcolor,
+            title='Pod:OSAKA',
+            title_x=.5,
+            xaxis=dict(
+                showgrid=True,
+                title='Original Berthing month'
+                ),
+            yaxis=dict(
+                title='Average delay days'))
+            
+    )
+
+fig_ooc_ktx6_yok = go.Figure(data=go.Scatter(
+        x=ooc6_x4,
+        y=ooc6_y4,
+        error_y=dict(
+            type='data',
+            symmetric=False,
+            array=max_err_ooc6_y4,
+            arrayminus=min_err_ooc6_y4,
             width=3,
             color= errbarcolor),
         marker=dict(
@@ -946,9 +1870,87 @@ evg_top_center = html.Div(
     ]
 )
 
+evg2_top_center = html.Div(
+    [
+        html.H3(children='Service: NSC',
+                style={
+                'color': mkrcolor, 
+                'display': 'inline-block',
+                'fontSize': 24,
+                'textAlign': 'center',
+                'background-color': evgcolor,
+                'fontWeight': 'bold',
+                'margin' : '1em 0 0 1em',
+                'padding': '0.2em 0.5em 0.2em 0.5em'})
+        
+    ]
+)
+
+evg3_top_center = html.Div(
+    [
+        html.H3(children='Service: NSD',
+                style={
+                'color': mkrcolor, 
+                'display': 'inline-block',
+                'fontSize': 24,
+                'textAlign': 'center',
+                'background-color': evgcolor,
+                'fontWeight': 'bold',
+                'margin' : '1em 0 0 1em',
+                'padding': '0.2em 0.5em 0.2em 0.5em'})
+        
+    ]
+)
+
+
 ooc_top_center = html.Div(
     [
         html.H3(children='Service: KTX1',
+            style={
+                'color': mkrcolor, 
+                'display': 'inline-block',
+                'fontSize': 24,
+                'textAlign': 'center',
+                'background-color': ooclcolor,
+                'fontWeight': 'bold',
+                'margin' : '1em 0 0 1em',
+                'padding': '0.2em 0.5em 0.2em 0.5em'}) 
+    ]
+)
+
+ooc2_top_center = html.Div(
+    [
+        html.H3(children='Service: KTX2',
+            style={
+                'color': mkrcolor, 
+                'display': 'inline-block',
+                'fontSize': 24,
+                'textAlign': 'center',
+                'background-color': ooclcolor,
+                'fontWeight': 'bold',
+                'margin' : '1em 0 0 1em',
+                'padding': '0.2em 0.5em 0.2em 0.5em'}) 
+    ]
+)
+
+ooc3_top_center = html.Div(
+    [
+        html.H3(children='Service: KTX3',
+            style={
+                'color': mkrcolor, 
+                'display': 'inline-block',
+                'fontSize': 24,
+                'textAlign': 'center',
+                'background-color': ooclcolor,
+                'fontWeight': 'bold',
+                'margin' : '1em 0 0 1em',
+                'padding': '0.2em 0.5em 0.2em 0.5em'}) 
+    ]
+)
+
+ooc6_top_center = html.Div(
+    [
+        html.H3(children='Service: KTX6',
             style={
                 'color': mkrcolor, 
                 'display': 'inline-block',
@@ -1010,6 +2012,86 @@ evg_top_right = html.Div(
     style=div_style,
 )
 
+evg2_top_left = html.Div(
+    [
+        dcc.Graph(
+                    id='evg_nsc_obe',
+                    figure=fig_evg_nsc_obe
+                )
+    ],
+    style=div_style,
+)
+
+evg2_top_right = html.Div(
+    [
+        dcc.Graph(
+                    id='evg-nsc-osa',
+                    figure=fig_evg_nsc_osa 
+                )
+    ],
+    style=div_style,
+)
+
+evg2_bottom_left = html.Div(
+    [
+        dcc.Graph(
+                    id='evg_nsc_obe',
+                    figure=fig_evg_nsc_tyo
+                )
+    ],
+    style=div_style,
+)
+
+evg2_bottom_right = html.Div(
+    [
+        dcc.Graph(
+                    id='evg-nsc-osa',
+                    figure=fig_evg_nsc_yok 
+                )
+    ],
+    style=div_style,
+)
+
+evg3_top_left = html.Div(
+    [
+        dcc.Graph(
+                    id='evg_nsd_obe',
+                    figure=fig_evg_nsd_obe
+                )
+    ],
+    style=div_style,
+)
+
+evg3_top_right = html.Div(
+    [
+        dcc.Graph(
+                    id='evg-nsd-osa',
+                    figure=fig_evg_nsd_osa 
+                )
+    ],
+    style=div_style,
+)
+
+evg3_bottom_left = html.Div(
+    [
+        dcc.Graph(
+                    id='evg_nsd_obe',
+                    figure=fig_evg_nsd_tyo
+                )
+    ],
+    style=div_style,
+)
+
+evg3_bottom_right = html.Div(
+    [
+        dcc.Graph(
+                    id='evg-nsd-osa',
+                    figure=fig_evg_nsd_yok 
+                )
+    ],
+    style=div_style,
+)
+
 ooc_top_left = html.Div(
     [
         dcc.Graph(
@@ -1049,6 +2131,127 @@ ooc_bottom_right = html.Div(
     ],
     style=div_style,
 )
+
+ooc2_top_left = html.Div(
+    [
+        dcc.Graph(
+            id='ooc_ktx2_obe',
+            figure=fig_ooc_ktx2_obe
+        )
+    ],
+    style=div_style,
+)
+
+ooc2_top_right = html.Div(
+    [
+        dcc.Graph(
+            id='ooc_ktx2_osa',
+            figure=fig_ooc_ktx2_osa
+        )
+    ],
+    style=div_style,
+)
+
+ooc2_bottom_left = html.Div(
+    [
+        dcc.Graph(
+            id='ooc_ktx2_tyo',
+            figure=fig_ooc_ktx2_tyo
+        )
+    ],
+    style=div_style,
+)
+
+ooc2_bottom_right = html.Div(
+    [
+        dcc.Graph(
+            id='ooc_ktx2_yok',
+            figure=fig_ooc_ktx2_yok
+        )
+    ],
+    style=div_style,
+)
+
+ooc3_top_left = html.Div(
+    [
+        dcc.Graph(
+            id='ooc_ktx3_obe',
+            figure=fig_ooc_ktx3_obe
+        )
+    ],
+    style=div_style,
+)
+
+ooc3_top_right = html.Div(
+    [
+        dcc.Graph(
+            id='ooc_ktx3_osa',
+            figure=fig_ooc_ktx3_osa
+        )
+    ],
+    style=div_style,
+)
+
+ooc3_bottom_left = html.Div(
+    [
+        dcc.Graph(
+            id='ooc_ktx3_tyo',
+            figure=fig_ooc_ktx3_tyo
+        )
+    ],
+    style=div_style,
+)
+
+ooc3_bottom_right = html.Div(
+    [
+        dcc.Graph(
+            id='ooc_ktx3_yok',
+            figure=fig_ooc_ktx3_yok
+        )
+    ],
+    style=div_style,
+)
+
+ooc6_top_left = html.Div(
+    [
+        dcc.Graph(
+            id='ooc_ktx6_obe',
+            figure=fig_ooc_ktx6_obe
+        )
+    ],
+    style=div_style,
+)
+
+ooc6_top_right = html.Div(
+    [
+        dcc.Graph(
+            id='ooc_ktx6_osa',
+            figure=fig_ooc_ktx6_osa
+        )
+    ],
+    style=div_style,
+)
+
+ooc6_bottom_left = html.Div(
+    [
+        dcc.Graph(
+            id='ooc_ktx6_tyo',
+            figure=fig_ooc_ktx6_tyo
+        )
+    ],
+    style=div_style,
+)
+
+ooc6_bottom_right = html.Div(
+    [
+        dcc.Graph(
+            id='ooc_ktx6_yok',
+            figure=fig_ooc_ktx6_yok
+        )
+    ],
+    style=div_style,
+)
+
 
 tsl_top_left = html.Div(
     [
@@ -1220,20 +2423,85 @@ def input_triggers_spinner(value):
     [Input('tabs-example', 'value')])
 def render_content(tab):
     if tab == 'tab-1':
-        return html.Div(
-            children=[
-                html.Div(evg_top_center),
-                html.Div([evg_top_left,evg_top_right]),
-            ]
-        )
+        #return html.Div(
+            #children=[
+                #html.Div(evg_top_center),
+                #html.Div([evg_top_left,evg_top_right]),
+            #]
+        #)
+        return html.Div([
+        dcc.Tabs(id='tabs-service-example', value='tab-nsa', 
+        children=[
+        dcc.Tab(
+            label='NSA', 
+            value='tab-nsa', 
+            style=tab_style, 
+            selected_style=tab_selected_style
+        ),
+        dcc.Tab(
+            label='NSC', 
+            value='tab-nsc', 
+            style=tab_style, 
+            selected_style=tab_selected_style
+        ),
+        dcc.Tab(
+            label='NSD', 
+            value='tab-nsd', 
+            style=tab_style, 
+            selected_style=tab_selected_style
+        ),
+        ],
+        style={
+            'padding':'4em 0 0 0',
+            'background-color' :'#FFFFFF'        
+            }
+        ),
+        html.Div(id='tabs-example-content-service')
+        ])
+        
     elif tab == 'tab-2':
-        return html.Div(
-            children=[
-                html.Div(ooc_top_center),
-                html.Div([ooc_top_left,ooc_top_right]),
-                html.Div([ooc_bottom_left,ooc_bottom_right]),
-            ]        
-        )
+        #return html.Div(
+            #children=[
+            #    html.Div(ooc_top_center),
+            #    html.Div([ooc_top_left,ooc_top_right]),
+            #    html.Div([ooc_bottom_left,ooc_bottom_right]),
+            #]        
+        #)
+        return html.Div([
+        dcc.Tabs(id='tabs-service-example', value='tab-ktx1', 
+        children=[
+        dcc.Tab(
+            label='KTX1', 
+            value='tab-ktx1', 
+            style=tab_style, 
+            selected_style=tab_selected_style
+        ),
+        dcc.Tab(
+            label='KTX2', 
+            value='tab-ktx2', 
+            style=tab_style, 
+            selected_style=tab_selected_style
+        ),
+        dcc.Tab(
+            label='KTX3', 
+            value='tab-ktx3', 
+            style=tab_style, 
+            selected_style=tab_selected_style
+        ),
+        dcc.Tab(
+            label='KTX6', 
+            value='tab-ktx6', 
+            style=tab_style, 
+            selected_style=tab_selected_style
+        ),
+        ],
+        style={
+            'padding':'4em 0 0 0',
+            'background-color' :'#FFFFFF'        
+            }
+        ),
+        html.Div(id='tabs-example-content-service')
+        ])
     #elif tab == 'tab-3':
         #return html.Div(
             #children=[
@@ -1244,7 +2512,7 @@ def render_content(tab):
         #)
     elif tab == 'tab-3':
         return html.Div([
-        dcc.Tabs(id='tabs-tsl-example', value='tab-jtk', 
+        dcc.Tabs(id='tabs-service-example', value='tab-jtk', 
         children=[
         dcc.Tab(
             label='JTK', 
@@ -1264,12 +2532,12 @@ def render_content(tab):
             'background-color' :'#FFFFFF'        
             }
         ),
-        html.Div(id='tabs-example-content-tsl')
+        html.Div(id='tabs-example-content-service')
         ])
         
 @app.callback(
-    Output('tabs-example-content-tsl', 'children'),
-    [Input('tabs-tsl-example', 'value')])
+    Output('tabs-example-content-service', 'children'),
+    [Input('tabs-service-example', 'value')])
 def render_content(value):
     if value == 'tab-jtk':
         return html.Div(
@@ -1287,6 +2555,63 @@ def render_content(value):
                 html.Div([tsl2_bottom_left,tsl2_bottom_right]),
             ]        
         )
-
+        
+    elif value == 'tab-nsa':
+        return html.Div(
+            children=[
+                html.Div(evg_top_center),
+                html.Div([evg_top_left,evg_top_right]),
+                #html.Div([evg_bottom_left,evg_bottom_right]),
+            ]        
+        )    
+    elif value == 'tab-nsc':
+        return html.Div(
+            children=[
+                html.Div(evg2_top_center),
+                #html.Div([evg2_top_left,evg2_top_right]),
+                html.Div([evg2_bottom_left,evg2_bottom_right]),
+            ]        
+        )
+    elif value == 'tab-nsd':
+        return html.Div(
+            children=[
+                html.Div(evg3_top_center),
+                #html.Div([evg3_top_left,evg3_top_right]),
+                html.Div([evg3_bottom_left,evg3_bottom_right]),
+            ]        
+        )    
+        
+    elif value == 'tab-ktx1':
+        return html.Div(
+            children=[
+                html.Div(ooc_top_center),
+                html.Div([ooc_top_left,ooc_top_right]),
+                html.Div([ooc_bottom_left,ooc_bottom_right]),
+            ]        
+        ) 
+        
+    elif value == 'tab-ktx2':
+        return html.Div(
+            children=[
+                html.Div(ooc2_top_center),
+                html.Div([ooc2_top_left,ooc2_top_right]),
+                html.Div([ooc2_bottom_left,ooc2_bottom_right]),
+            ]        
+        )  
+    elif value == 'tab-ktx3':
+        return html.Div(
+            children=[
+                html.Div(ooc3_top_center),
+                html.Div([ooc3_top_left,ooc3_top_right]),
+                html.Div([ooc3_bottom_left,ooc3_bottom_right]),
+            ]        
+        )   
+    elif value == 'tab-ktx6':
+        return html.Div(
+            children=[
+                html.Div(ooc6_top_center),
+                html.Div([ooc6_top_left,ooc6_bottom_left]),
+            ]        
+        ) 
 if __name__ == '__main__':
     app.run_server(debug=True)
