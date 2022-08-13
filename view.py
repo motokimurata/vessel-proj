@@ -1770,6 +1770,30 @@ server = app.server
 tabs_styles = {
     'height': '44px'
 }
+
+tab_style2 = {
+    'borderTop': '2px solid #FFFEF6',
+    'borderBottom': '2px solid #FFFEF6',
+    'borderLeft': '2px solid #FFFEF6',
+    'borderRight': '2px solid #FFFEF6',
+    'color': '#696969',
+    'background-color': '#FFFFFF',
+    'padding': '0px',
+    'fontSize': 16
+}
+
+tab_selected_style2 = {
+    'borderTop': '2px solid #FFFFFF',
+    'borderBottom': '4px solid #7b68ee',
+    'borderLeft': '0.05px solid #FFFFFF',
+    'borderRight': '0.05px solid #FFFFFF',
+    'fontWeight': 'bold',
+    'color': '#7b68ee',
+    'background-color': '#FFFFFF',
+    'padding': '0px',
+    'fontSize': 16
+}
+
 tab_style1 = {
     'borderTop': '2px solid #FFFEF6',
     'borderBottom': '2px solid #FFFEF6',
@@ -1813,14 +1837,14 @@ tab_selected_style = {
 app.layout =  html.Div([
         html.H1(children='    Vessel Delay Report',
         style={
-            'color': '#696969', 
+            'color': '#FFFFFF', 
             'borderTop': '1px solid #d6d6d6',
-            'fontSize': 22,
-            'textAlign': 'left',
-            'background-color': '#FFFEF6',
+            'fontSize': 32,
+            'textAlign': 'center',
+            'background-color': '#7b68ee',
             'fontWeight': 'bold',
             'margin': '0 0 -1em 0',
-            'padding': '0.2em 0.5em 1em 0.5em'}
+            'padding': '0.2em 0.5em 0.5em 0.5em'}
             ),
         html.Div([
         dcc.Tabs(id='tabs-example1', value='tab-a', 
@@ -1828,21 +1852,21 @@ app.layout =  html.Div([
         dcc.Tab(
             label='Graph', 
             value='tab-a', 
-            style=tab_style1, 
-            selected_style=tab_selected_style1
+            style=tab_style2, 
+            selected_style=tab_selected_style2
         ),
         dcc.Tab(
             label='Download', 
             value='tab-b', 
-            style=tab_style1, 
-            selected_style=tab_selected_style1      
+            style=tab_style2, 
+            selected_style=tab_selected_style2     
         )
             ],
             style={
             'display': 'block',
             'margin': '1em 0 0 0',
-            'padding':'0 75em 0.05em 0',   
-            'background-color': '#FFFEF6',
+            'padding':'0 80% 0.05em 0',   
+            'background-color': '#FFFFFF',
             'borderBottom': '1px solid #d6d6d6',
             })
         ]),
@@ -2362,8 +2386,11 @@ def render_content(tab):
         ),
         ],
         style={
-            'padding':'4em 0 0 0',
-            'background-color' :'#FFFFFF'        
+            'background-color' :'#FFFFFF',
+            'display': 'block',
+            'margin': '1em 0 0 0',
+            'padding':'0 70% 0.05em 0',   
+            #'borderBottom': '1px solid #d6d6d6',     
             }
         ),
         html.Div(id='tabs-example-content-1')
@@ -2391,12 +2418,12 @@ def render_content(tab):
                     'value': 'TSL'}    
                 ], 
                 style={
-                'margin': '2em 0 0 0',         
+                'margin': '1em 0 0 0',         
                 },
                 value= ['OOC', 'EVG','SAS','TSL','WHL','ONE'],
                 multi=True
             ),
-            html.Div(id='output-container', style={"margin": "5%"})
+            html.Div(id='output-container', style={'textAlign': 'center',"margin": "1%"})
         ] 
     )
 
@@ -2412,9 +2439,18 @@ def input_triggers_spinner(value):
     output_table = dash_table.DataTable(
         id='table',
         columns=[{"name": i, "id": i} for i in df.columns],
+        # リスト表示にします
+        #style_as_list_view=True,
         data=df_out.to_dict('records'),
+        # headerを固定してスクロールできるようにします
+        fixed_rows={ 'headers': True, 'data': 0 },
         filter_action='native',
-        export_format='csv',
+        style_filter={'border': '1px solid black' },
+                       #, 'textAlign':'left'},
+        export_format='xlsx',
+        style_header={'textAlign': 'center','border': '1px solid black' ,'color':'white','backgroundColor': '#7b68ee',
+        'fontWeight': 'bold'},
+        style_cell={'textAlign': 'center','border': '1px solid black' }
     )
     return output_table
 
@@ -2435,26 +2471,29 @@ def render_content(tab):
         dcc.Tab(
             label='NSA', 
             value='tab-nsa', 
-            style=tab_style, 
-            selected_style=tab_selected_style
+            style=tab_style2, 
+            selected_style=tab_selected_style2
         ),
         dcc.Tab(
             label='NSC', 
             value='tab-nsc', 
-            style=tab_style, 
-            selected_style=tab_selected_style
+            style=tab_style2, 
+            selected_style=tab_selected_style2
         ),
         dcc.Tab(
             label='NSD', 
             value='tab-nsd', 
-            style=tab_style, 
-            selected_style=tab_selected_style
+            style=tab_style2, 
+            selected_style=tab_selected_style2
         ),
         ],
         style={
-            'padding':'4em 0 0 0',
-            'background-color' :'#FFFFFF'        
-            }
+            'background-color' :'#FFFFFF',
+            'display': 'block',
+            'margin': '1em 0 0 0',
+            'padding':'0 70% 0.05em 0',   
+            'borderBottom': '1px solid #d6d6d6',
+            }       
         ),
         html.Div(id='tabs-example-content-service')
         ])
@@ -2473,31 +2512,34 @@ def render_content(tab):
         dcc.Tab(
             label='KTX1', 
             value='tab-ktx1', 
-            style=tab_style, 
-            selected_style=tab_selected_style
+            style=tab_style2, 
+            selected_style=tab_selected_style2
         ),
         dcc.Tab(
             label='KTX2', 
             value='tab-ktx2', 
-            style=tab_style, 
-            selected_style=tab_selected_style
+            style=tab_style2, 
+            selected_style=tab_selected_style2
         ),
         dcc.Tab(
             label='KTX3', 
             value='tab-ktx3', 
-            style=tab_style, 
-            selected_style=tab_selected_style
+            style=tab_style2, 
+            selected_style=tab_selected_style2
         ),
         dcc.Tab(
             label='KTX6', 
             value='tab-ktx6', 
-            style=tab_style, 
-            selected_style=tab_selected_style
+            style=tab_style2, 
+            selected_style=tab_selected_style2
         ),
         ],
         style={
-            'padding':'4em 0 0 0',
-            'background-color' :'#FFFFFF'        
+            'background-color' :'#FFFFFF',
+            'display': 'block',
+            'margin': '1em 0 0 0',
+            'padding':'0 70% 0.05em 0',   
+            'borderBottom': '1px solid #d6d6d6',        
             }
         ),
         html.Div(id='tabs-example-content-service')
@@ -2517,19 +2559,22 @@ def render_content(tab):
         dcc.Tab(
             label='JTK', 
             value='tab-jtk', 
-            style=tab_style, 
-            selected_style=tab_selected_style
+            style=tab_style2, 
+            selected_style=tab_selected_style2
         ),
         dcc.Tab(
             label='JTK2', 
             value='tab-jtk2', 
-            style=tab_style, 
-            selected_style=tab_selected_style
+            style=tab_style2, 
+            selected_style=tab_selected_style2
         ),
         ],
         style={
-            'padding':'4em 0 0 0',
-            'background-color' :'#FFFFFF'        
+            'background-color' :'#FFFFFF',
+            'display': 'block',
+            'margin': '1em 0 0 0',
+            'padding':'0 70% 0.05em 0',   
+            'borderBottom': '1px solid #d6d6d6',       
             }
         ),
         html.Div(id='tabs-example-content-service')
@@ -2542,7 +2587,7 @@ def render_content(value):
     if value == 'tab-jtk':
         return html.Div(
             children=[
-                html.Div(tsl_top_center),
+                #html.Div(tsl_top_center),
                 html.Div([tsl_top_left,tsl_top_right]),
                 html.Div([tsl_bottom_left,tsl_bottom_right]),
             ]        
@@ -2550,7 +2595,7 @@ def render_content(value):
     elif value == 'tab-jtk2':
         return html.Div(
             children=[
-                html.Div(tsl2_top_center),
+                #html.Div(tsl2_top_center),
                 html.Div([tsl2_top_left,tsl2_top_right]),
                 html.Div([tsl2_bottom_left,tsl2_bottom_right]),
             ]        
@@ -2559,7 +2604,7 @@ def render_content(value):
     elif value == 'tab-nsa':
         return html.Div(
             children=[
-                html.Div(evg_top_center),
+                #html.Div(evg_top_center),
                 html.Div([evg_top_left,evg_top_right]),
                 #html.Div([evg_bottom_left,evg_bottom_right]),
             ]        
@@ -2567,7 +2612,7 @@ def render_content(value):
     elif value == 'tab-nsc':
         return html.Div(
             children=[
-                html.Div(evg2_top_center),
+                #html.Div(evg2_top_center),
                 #html.Div([evg2_top_left,evg2_top_right]),
                 html.Div([evg2_bottom_left,evg2_bottom_right]),
             ]        
@@ -2575,7 +2620,7 @@ def render_content(value):
     elif value == 'tab-nsd':
         return html.Div(
             children=[
-                html.Div(evg3_top_center),
+                #html.Div(evg3_top_center),
                 #html.Div([evg3_top_left,evg3_top_right]),
                 html.Div([evg3_bottom_left,evg3_bottom_right]),
             ]        
@@ -2584,7 +2629,7 @@ def render_content(value):
     elif value == 'tab-ktx1':
         return html.Div(
             children=[
-                html.Div(ooc_top_center),
+                #html.Div(ooc_top_center),
                 html.Div([ooc_top_left,ooc_top_right]),
                 html.Div([ooc_bottom_left,ooc_bottom_right]),
             ]        
@@ -2593,7 +2638,7 @@ def render_content(value):
     elif value == 'tab-ktx2':
         return html.Div(
             children=[
-                html.Div(ooc2_top_center),
+                #html.Div(ooc2_top_center),
                 html.Div([ooc2_top_left,ooc2_top_right]),
                 html.Div([ooc2_bottom_left,ooc2_bottom_right]),
             ]        
@@ -2601,7 +2646,7 @@ def render_content(value):
     elif value == 'tab-ktx3':
         return html.Div(
             children=[
-                html.Div(ooc3_top_center),
+                #html.Div(ooc3_top_center),
                 html.Div([ooc3_top_left,ooc3_top_right]),
                 html.Div([ooc3_bottom_left,ooc3_bottom_right]),
             ]        
@@ -2609,7 +2654,7 @@ def render_content(value):
     elif value == 'tab-ktx6':
         return html.Div(
             children=[
-                html.Div(ooc6_top_center),
+                #html.Div(ooc6_top_center),
                 html.Div([ooc6_top_left,ooc6_bottom_left]),
             ]        
         ) 
