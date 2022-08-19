@@ -12,6 +12,8 @@ from datetime import datetime as dt
 from datetime import timedelta as td    
 from dateutil.parser import parse
 import plotly.graph_objects as go
+import dash_auth
+from users import USERNAME_PASSWORD_PAIRS
 
 #以下コードを記す。
 data = db_session.query(Data.Vessel,Data.Carrier,Data.Voyage,Data.Service,Data.Pod,Data.ETA,Data.Berthing,Data.timestamp+td(hours=9)).all()
@@ -1752,9 +1754,9 @@ fig_tsl_jtk2_yok = go.Figure(data=go.Scatter(
             
     )
 
-VALID_USERNAME_PASSWORD_PAIRS = {
-    'Motoki Murata': '2022'
-}
+#VALID_USERNAME_PASSWORD_PAIRS = {
+#    'Motoki Murata': '2022'
+#}
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
@@ -1762,7 +1764,7 @@ app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 
 auth = dash_auth.BasicAuth(
     app,
-    VALID_USERNAME_PASSWORD_PAIRS
+    USERNAME_PASSWORD_PAIRS
 )
 
 server = app.server
