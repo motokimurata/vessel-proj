@@ -16,12 +16,12 @@ import dash_auth
 from users import USERNAME_PASSWORD_PAIRS
 
 #以下コードを記す。
-data = db_session.query(Data.Vessel,Data.Carrier,Data.Voyage,Data.Service,Data.Pod,Data.ETA,Data.Berthing,Data.timestamp+td(hours=9)).all()
-#data = pd.read_csv('assets/vessel_schedule.csv')
-header=['Vessel','Carrier','Voyage No.','Service','POD', 'ETA','Berthing','UpdateTime']
+#data = db_session.query(Data.Vessel,Data.Carrier,Data.Voyage,Data.Service,Data.Pod,Data.ETA,Data.Berthing,Data.timestamp+td(hours=9)).all()
+data = pd.read_csv('assets/vessel_schedule.csv')
+header=['船名','Carrier','Voyage No.','サービス','POD', 'ETA','Berthing','UpdateTime']
 df_origin = pd.DataFrame(data=data,columns=header)
 df = pd.DataFrame(data=data,columns=header)
-db_session.close()
+#db_session.close()
 for i in range(len(df['Berthing'])): #Berthing列を文字列から日付型へ変更
     try:
         df.loc[i,'Berthing'] = parse(df['Berthing'][i])
@@ -35,14 +35,14 @@ for i in range(len(df['UpdateTime'])): #UpdateTime列を文字列から日付型
         df.loc[i,'UpdateTime'] = np.nan
 
 df.dropna(axis=0,subset=['UpdateTime']).copy() #UpdatetimeがNaNの行を削除
-df.sort_values(['Carrier','Service','POD','Voyage No.','Vessel','UpdateTime'],ascending=[True,True,True,True,True,True]).reset_index(drop=True).copy()
+df.sort_values(['Carrier','サービス','POD','Voyage No.','船名','UpdateTime'],ascending=[True,True,True,True,True,True]).reset_index(drop=True).copy()
 df1 = df.drop(columns = ['ETA','UpdateTime'],inplace=False).copy() #日付列を削除して新たなdfを生成
-df1.drop_duplicates(subset=['Vessel','Carrier','Voyage No.','Service','POD'],inplace=True,ignore_index=True,keep='first') #上で日付古い順にソートしているので重複を削除すると一番古いBerthingを保持
+df1.drop_duplicates(subset=['船名','Carrier','Voyage No.','サービス','POD'],inplace=True,ignore_index=True,keep='first') #上で日付古い順にソートしているので重複を削除すると一番古いBerthingを保持
 df1.rename(columns={'Berthing':'Berthing_first'},inplace=True) #'Berthing'の列名を'Berthing_first'へ変更
 df2 = df.drop(columns = ['ETA'],inplace=False).copy() #日付列を削除して新たなdfを生成
-df2.drop_duplicates(subset=['Vessel','Carrier','Voyage No.','Service','POD'],inplace=True,ignore_index=True,keep='last') #上で日付古い順にソートしているので重複を削除すると一番新しいBerthingとUpdatetimeを保持
+df2.drop_duplicates(subset=['船名','Carrier','Voyage No.','サービス','POD'],inplace=True,ignore_index=True,keep='last') #上で日付古い順にソートしているので重複を削除すると一番新しいBerthingとUpdatetimeを保持
 df2.rename(columns={'Berthing':'Berthing_last'},inplace=True) #'Berthing'の列名を'Berthing_last'へ変更
-df1= pd.merge(df1,df2,on=['Vessel','Carrier','Voyage No.','Service','POD'],how='left').copy()
+df1= pd.merge(df1,df2,on=['船名','Carrier','Voyage No.','サービス','POD'],how='left').copy()
 df1.dropna(axis=0,subset=['Berthing_first', 'Berthing_last']) #Berthing_firstもしくはBerthing_lastがNaNの行を削除
 df1.reset_index(drop=True)
 
@@ -67,9 +67,9 @@ df_year_month = pd.DataFrame(year_month,columns=['year_month'])
 df1= df1.assign(delta_days = df_delta_days,year_month=df_year_month)
 
 pd.set_option('display.max_rows', None)
-df_summary = df1.groupby(['Carrier','POD','Service','year_month'])['delta_days'].agg([min,max,np.mean,"count"]).reset_index()
-new_row = df_summary['Carrier'].str.cat(df_summary['Service'], sep='_').str.cat(df_summary['POD'], sep='_')
-df_summary.insert(3,'Carrier_Service_POD',new_row)
+df_summary = df1.groupby(['Carrier','POD','サービス','year_month'])['delta_days'].agg([min,max,np.mean,"count"]).reset_index()
+new_row = df_summary['Carrier'].str.cat(df_summary['サービス'], sep='_').str.cat(df_summary['POD'], sep='_')
+df_summary.insert(3,'Carrier_サービス_POD',new_row)
 
 year_month_unique = df_summary['year_month'].unique()
 df_date = pd.DataFrame(data=year_month_unique,columns=['year_month_unique']).sort_values('year_month_unique',ascending=True).reset_index(drop=True)
@@ -78,7 +78,7 @@ dict_date_swap = {v: k for k, v in dict_date['year_month_unique'].items()}
 df_summary_rev = df_summary.replace(dict_date_swap)
 year_month_unique_index = df_summary_rev['year_month'].unique()
 
-target1 = df_summary[(df_summary['Carrier'] == 'EVG')&(df_summary['Service'] == 'NSA')]
+target1 = df_summary[(df_summary['Carrier'] == 'EVG')&(df_summary['サービス'] == 'NSA')]
 evg_x1 = target1['year_month'][target1['POD'] == 'OBE']
 evg_y1 = target1['mean'][target1['POD'] == 'OBE']
 min_err_evg_y1= target1['mean'][target1['POD'] == 'OBE']-target1['min'][target1['POD'] == 'OBE']
@@ -99,7 +99,7 @@ evg_y4 = target1['mean'][target1['POD'] == 'YOK']
 min_err_evg_y4= target1['mean'][target1['POD'] == 'YOK']-target1['min'][target1['POD'] == 'YOK']
 max_err_evg_y4= target1['max'][target1['POD'] == 'YOK']-target1['mean'][target1['POD'] == 'YOK']
 
-target5 = df_summary[(df_summary['Carrier'] == 'EVG')&(df_summary['Service'] == 'NSC')]
+target5 = df_summary[(df_summary['Carrier'] == 'EVG')&(df_summary['サービス'] == 'NSC')]
 evg2_x1 = target5['year_month'][target5['POD'] == 'OBE']
 evg2_y1 = target5['mean'][target5['POD'] == 'OBE']
 min_err_evg2_y1= target5['mean'][target5['POD'] == 'OBE']-target5['min'][target5['POD'] == 'OBE']
@@ -120,7 +120,7 @@ evg2_y4 = target5['mean'][target5['POD'] == 'YOK']
 min_err_evg2_y4= target5['mean'][target5['POD'] == 'YOK']-target5['min'][target5['POD'] == 'YOK']
 max_err_evg2_y4= target5['max'][target5['POD'] == 'YOK']-target5['mean'][target5['POD'] == 'YOK']
 
-target6 = df_summary[(df_summary['Carrier'] == 'EVG')&(df_summary['Service'] == 'NSD')]
+target6 = df_summary[(df_summary['Carrier'] == 'EVG')&(df_summary['サービス'] == 'NSD')]
 evg3_x1 = target6['year_month'][target6['POD'] == 'OBE']
 evg3_y1 = target6['mean'][target6['POD'] == 'OBE']
 min_err_evg3_y1= target6['mean'][target6['POD'] == 'OBE']-target6['min'][target6['POD'] == 'OBE']
@@ -141,7 +141,7 @@ evg3_y4 = target6['mean'][target6['POD'] == 'YOK']
 min_err_evg3_y4= target6['mean'][target6['POD'] == 'YOK']-target6['min'][target6['POD'] == 'YOK']
 max_err_evg3_y4= target6['max'][target6['POD'] == 'YOK']-target6['mean'][target6['POD'] == 'YOK']
 
-target2 = df_summary[(df_summary['Carrier'] == 'OOC')&(df_summary['Service'] == 'KTX1')]
+target2 = df_summary[(df_summary['Carrier'] == 'OOC')&(df_summary['サービス'] == 'KTX1')]
 ooc_x1 = target2['year_month'][target2['POD'] == 'OBE']
 ooc_y1 = target2['mean'][target2['POD'] == 'OBE']
 min_err_ooc_y1= target2['mean'][target2['POD'] == 'OBE']-target2['min'][target2['POD'] == 'OBE']
@@ -162,7 +162,7 @@ ooc_y4 = target2['mean'][target2['POD'] == 'YOK']
 min_err_ooc_y4= target2['mean'][target2['POD'] == 'YOK']-target2['min'][target2['POD'] == 'YOK']
 max_err_ooc_y4= target2['max'][target2['POD'] == 'YOK']-target2['mean'][target2['POD'] == 'YOK']
 
-target7 = df_summary[(df_summary['Carrier'] == 'OOC')&(df_summary['Service'] == 'KTX2')]
+target7 = df_summary[(df_summary['Carrier'] == 'OOC')&(df_summary['サービス'] == 'KTX2')]
 ooc2_x1 = target7['year_month'][target7['POD'] == 'OBE']
 ooc2_y1 = target7['mean'][target7['POD'] == 'OBE']
 min_err_ooc2_y1= target7['mean'][target7['POD'] == 'OBE']-target7['min'][target7['POD'] == 'OBE']
@@ -183,7 +183,7 @@ ooc2_y4 = target7['mean'][target7['POD'] == 'YOK']
 min_err_ooc2_y4= target7['mean'][target7['POD'] == 'YOK']-target7['min'][target7['POD'] == 'YOK']
 max_err_ooc2_y4= target7['max'][target7['POD'] == 'YOK']-target7['mean'][target7['POD'] == 'YOK']
 
-target8 = df_summary[(df_summary['Carrier'] == 'OOC')&(df_summary['Service'] == 'KTX6')]
+target8 = df_summary[(df_summary['Carrier'] == 'OOC')&(df_summary['サービス'] == 'KTX6')]
 ooc3_x1 = target8['year_month'][target8['POD'] == 'OBE']
 ooc3_y1 = target8['mean'][target8['POD'] == 'OBE']
 min_err_ooc3_y1= target8['mean'][target8['POD'] == 'OBE']-target8['min'][target8['POD'] == 'OBE']
@@ -204,7 +204,7 @@ ooc3_y4 = target8['mean'][target8['POD'] == 'YOK']
 min_err_ooc3_y4= target8['mean'][target8['POD'] == 'YOK']-target8['min'][target8['POD'] == 'YOK']
 max_err_ooc3_y4= target8['max'][target8['POD'] == 'YOK']-target8['mean'][target8['POD'] == 'YOK']
 
-target9 = df_summary[(df_summary['Carrier'] == 'OOC')&(df_summary['Service'] == 'KTX3')]
+target9 = df_summary[(df_summary['Carrier'] == 'OOC')&(df_summary['サービス'] == 'KTX3')]
 ooc6_x1 = target9['year_month'][target9['POD'] == 'OBE']
 ooc6_y1 = target9['mean'][target9['POD'] == 'OBE']
 min_err_ooc6_y1= target9['mean'][target9['POD'] == 'OBE']-target9['min'][target9['POD'] == 'OBE']
@@ -225,7 +225,7 @@ ooc6_y4 = target9['mean'][target9['POD'] == 'YOK']
 min_err_ooc6_y4= target9['mean'][target9['POD'] == 'YOK']-target9['min'][target9['POD'] == 'YOK']
 max_err_ooc6_y4= target9['max'][target9['POD'] == 'YOK']-target9['mean'][target9['POD'] == 'YOK']
 
-target3 = df_summary[(df_summary['Carrier'] == 'TSL')&(df_summary['Service'] == 'JTK')]
+target3 = df_summary[(df_summary['Carrier'] == 'TSL')&(df_summary['サービス'] == 'JTK')]
 tsl_x1 = target3['year_month'][target3['POD'] == 'OBE']
 tsl_y1 = target3['mean'][target3['POD'] == 'OBE']
 min_err_tsl_y1= target3['mean'][target3['POD'] == 'OBE']-target3['min'][target3['POD'] == 'OBE']
@@ -246,7 +246,7 @@ tsl_y4 = target3['mean'][target3['POD'] == 'YOK']
 min_err_tsl_y4= target3['mean'][target3['POD'] == 'YOK']-target3['min'][target3['POD'] == 'YOK']
 max_err_tsl_y4= target3['max'][target3['POD'] == 'YOK']-target3['mean'][target3['POD'] == 'YOK']
 
-target4 = df_summary[(df_summary['Carrier'] == 'TSL')&(df_summary['Service'] == 'JTK2')]
+target4 = df_summary[(df_summary['Carrier'] == 'TSL')&(df_summary['サービス'] == 'JTK2')]
 tsl2_x1 = target4['year_month'][target4['POD'] == 'OBE']
 tsl2_y1 = target4['mean'][target4['POD'] == 'OBE']
 min_err_tsl2_y1= target4['mean'][target4['POD'] == 'OBE']-target4['min'][target4['POD'] == 'OBE']
@@ -1837,7 +1837,7 @@ tab_selected_style = {
 }
 
 app.layout =  html.Div([
-        html.H1(children='    Vessel Delay Report',
+        html.H1(children='    船名 Delay Report',
         style={
             'color': '#FFFFFF', 
             'borderTop': '1px solid #d6d6d6',
