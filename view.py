@@ -16,12 +16,12 @@ import dash_auth
 from users import USERNAME_PASSWORD_PAIRS
 
 #以下コードを記す。
-#data = db_session.query(Data.Vessel,Data.Carrier,Data.Voyage,Data.Service,Data.Pod,Data.ETA,Data.Berthing,Data.timestamp+td(hours=9)).all()
-data = pd.read_csv('assets/vessel_schedule.csv')
+data = db_session.query(Data.Vessel,Data.Carrier,Data.Voyage,Data.Service,Data.Pod,Data.ETA,Data.Berthing,Data.timestamp+td(hours=9)).all()
+#data = pd.read_csv('assets/vessel_schedule.csv')
 header=['船名','Carrier','Voyage No.','サービス','POD', 'ETA','Berthing','UpdateTime']
 df_origin = pd.DataFrame(data=data,columns=header)
 df = pd.DataFrame(data=data,columns=header)
-#db_session.close()
+db_session.close()
 for i in range(len(df['Berthing'])): #Berthing列を文字列から日付型へ変更
     try:
         df.loc[i,'Berthing'] = parse(df['Berthing'][i])
