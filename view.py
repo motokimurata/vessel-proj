@@ -1837,7 +1837,7 @@ tab_selected_style = {
 }
 
 app.layout =  html.Div([
-        html.H1(children='    船名 Delay Report',
+        html.H1(children='    日本輸入 本船遅延情報',
         style={
             'color': '#FFFFFF', 
             'borderTop': '1px solid #d6d6d6',
